@@ -425,7 +425,7 @@ public class SceneLoader {
 	
 	public static void main(String[] args) {
 		//System.out.println("Working Directory = " + System.getProperty("user.dir"));
-		SceneLoader sceneLoader = new SceneLoader("Story.json");
+		SceneLoader sceneLoader = new SceneLoader("./Story.json");
 		sceneLoader.setNextScene("Init");
 		
 		boolean end = false;
