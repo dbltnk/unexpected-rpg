@@ -1,0 +1,823 @@
+{
+	"Init": {
+		"situation": {"text": "Press a key to start game."},
+		"effects":
+		[
+			{"action":"next_scene", "scene":"Intro1"},
+			{"action":"add_item", "item":"Armor"},
+			{"action":"import_image", "filename":"./images/bg_abduct_128_blur_950.png", "label":"abduct"},
+			{"action":"import_image", "filename":"./images/bg_black_950.png", "label":"black"},
+			{"action":"import_image", "filename":"./images/bg_castle_128_blur_950.png", "label":"castle"},
+			{"action":"import_image", "filename":"./images/bg_cave_950.png", "label":"cave"},
+			{"action":"import_image", "filename":"./images/bg_crypta_950.png", "label":"crypta"},
+			{"action":"import_image", "filename":"./images/bg_house_128_blur_950.png", "label":"house"},
+			{"action":"import_image", "filename":"./images/bg_mountain_950.png", "label":"mountain"},
+			{"action":"import_image", "filename":"./images/bg_plain_128_blur_950.png", "label":"plain"},
+			{"action":"import_image", "filename":"./images/bg_taverna_950.png", "label":"taverna"},
+			{"action":"import_image", "filename":"./images/bg_tower_128_blur_950.png", "label":"tower"},
+			{"action":"import_image", "filename":"./images/bg_town_128_blur_950.png", "label":"town"},
+			{"action":"import_image", "filename":"./images/bird_bleeding_trix.png", "label":"bird_bleed"},
+			{"action":"import_image", "filename":"./images/bird_flying_trix.png", "label":"bird_fly"},
+			{"action":"import_image", "filename":"./images/bird_smoke_trix.png", "label":"bird_smoke"},
+			{"action":"import_image", "filename":"./images/char_fighter_armored_trix_cut.png", "label":"fighter_armor"},
+			{"action":"import_image", "filename":"./images/char_fighter_unarmored_trix_cut.png", "label":"fighter"},
+			{"action":"import_image", "filename":"./images/char_mage_trix_cut.png", "label":"mage"},
+			{"action":"import_image", "filename":"./images/char_priest_trix_cut.png", "label":"priest"},
+			{"action":"import_image", "filename":"./images/char_rogue_trix_cut.png", "label":"rogue"},
+			{"action":"import_image", "filename":"./images/icon_a_32_trix.png", "label":"icon_a"},
+			{"action":"import_image", "filename":"./images/icon_b_32_trix.png", "label":"icon_b"},
+			{"action":"import_image", "filename":"./images/icon_x_32_trix.png", "label":"icon_x"},
+			{"action":"import_image", "filename":"./images/icon_y_32_trix.png", "label":"icon_y"},
+			{"action":"import_image", "filename":"./images/item_armor_glow.png", "label":"armor"},
+			{"action":"import_image", "filename":"./images/item_bg_trix.png", "label":"item_bg"},
+			{"action":"import_image", "filename":"./images/item_book_glow.png", "label":"book"},
+			{"action":"import_image", "filename":"./images/item_flower_glow.png", "label":"flower"},
+			{"action":"import_image", "filename":"./images/item_horse_glow.png", "label":"horse"},
+			{"action":"import_image", "filename":"./images/mob_bag_trix.png", "label":"bag"},
+			{"action":"import_image", "filename":"./images/mob_bird_trix.png", "label":"bird"},
+			{"action":"import_image", "filename":"./images/mob_boss_trix.png", "label":"boss"},
+			{"action":"import_image", "filename":"./images/mob_creature_trix.png", "label":"creature"},
+			{"action":"import_image", "filename":"./images/mob_flower_trix.png", "label":"mob_flower"},
+			{"action":"import_image", "filename":"./images/mob_guard_cut.png", "label":"guard"},
+			{"action":"import_image", "filename":"./images/mob_oldman_armored_cut.png", "label":"oldman_armor"},
+			{"action":"import_image", "filename":"./images/mob_oldman_cut.png", "label":"oldman"},
+			{"action":"import_image", "filename":"./images/mob_richguy_cut.png", "label":"richguy"},
+			{"action":"import_image", "filename":"./images/mob_rider_cut.png", "label":"rider"},
+			{"action":"import_image", "filename":"./images/mobs_book.png", "label":"mob_book"},
+			{"action":"import_image", "filename":"./images/mobs_gold_trix.png", "label":"gold"},
+			{"action":"import_image", "filename":"./images/ui_bag_trix_scaled.png", "label":"ui_bag"},
+			{"action":"import_image", "filename":"./images/ui_gold_compo.png", "label":"ui_gold"},
+			{"action":"import_image", "filename":"./images/ui_papyrus_trix.png", "label":"papyrus"},
+			{"action":"import_image", "filename":"./images/ui_xp_compo.png", "label":"xp_compo"}
+		]
+	},
+	"Intro1": {
+		"situation": {"text": "A long time ago, there was a mighty warrior by the name of Garoth who had fought many battles to protect his kingdom and his people. His enemies froze upon the sight of his...", "background": "black"},
+		"choice":
+		[
+			{"tag":"... blue eyes...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"BLUE_EYES"}
+			 ]
+			},
+			{"tag":"... green eyes...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"GREEN_EYES"}
+			 ]
+			},
+			{"tag":"... brown eyes...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"BROWN_EYES"}
+			 ]
+			},
+			{"tag":"... black eyes...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"BLACK_EYES"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene", "scene":"Intro2"}
+		]
+	},
+	"Intro2": {
+		"situation": {"text": "... and his wild...", "reset_images":true},
+		"choice":
+		[
+			{"tag":"... blonde hair.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"BLONDE_HAIR"}
+			 ]
+			},
+			{"tag":"... brown hair.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"BROWN_HAIR"}
+			 ]
+			},
+			{"tag":"... black hair.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"BLACK_HAIR"}
+			 ]
+			},
+			{"tag":"... red hair.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"RED_HAIR"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene","scene":"Intro3"}
+		]
+	},
+	"Intro3": {
+		"situation": {"text": "When he drew his..."},
+		"choice":
+		[
+			{"tag":"... bow...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"BOW"}
+			 ]
+			},
+			{"tag":"... battle axe...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"BATTLE_AXE"}
+			 ]
+			},
+			{"tag":"... longsword...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"LONGSWORD"}
+			 ]
+			},
+			{"tag":"... magic staff...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"MAGIC_STAFF"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene","scene":"Intro4"}
+		]
+	},
+	"Intro4": {
+		"situation": {"text": "... his foes knew their end was near. His..."},
+		"choice":
+		[
+			{"tag":"... black robe...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"BLACK_ROBE"}
+			 ]
+			},
+			{"tag":"... shiny chainmail...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"SHINY_CHAINMAIL"}
+			 ]
+			},
+			{"tag":"... red cuirass...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"RED_CUIRASS"}
+			 ]
+			},
+			{"tag":"... leather armor...",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"LEATHER_ARMOR"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene","scene":"Intro5"}
+		]
+	},
+	"Intro5": {
+		"situation": {"text": "... showed the emblem of his ancestors:"},
+		"choice":
+		[
+			{"tag":"A red falcon.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"RED_FALCON"}
+			 ]
+			},
+			{"tag":"A purple bear.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"PURPLE_BEAR"}
+			 ]
+			},
+			{"tag":"A green snake.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"GREEN_SNAKE"}
+			 ]
+			},
+			{"tag":"A white rabbit.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"WHITE_RABBIT"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene","scene":"Intro6"}
+		]
+	},
+	"Intro6": {
+		"situation": {"text": "Many tales have been told about the Great Battle of Tarion, where he lost his..."},
+		"choice":
+		[
+			{"tag":"... left index finger.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"LEFT_FINGER"}
+			 ]
+			},
+			{"tag":"... right index finger.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"RIGHT_FINGER"}
+			 ]
+			},
+			{"tag":"... left ear.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"LEFT_EAR"}
+			 ]
+			},
+			{"tag":"... right ear.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"RIGHT_EAR"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene","scene":"Abduction"}
+		]
+	},
+	"Abduction": {
+		"situation": {"text": "Our story begins years after this victorious battle, which had finally brought  peace upon our land. It was a dark, yet warm summer night and the great hero was resting in his home. When he suddenly woke up to a noise in his bedroom, he looked up to see a dark figure standing at the foot of his bed. The next morning, he had disappeared.", "background": "abduct"},
+		"effects":
+		[
+			{"action":"next_scene", "scene":"Tavern"}
+		]
+	},
+	"Tavern": {
+		"situation": {"text": "A few days later, in a tavern just outside the city of Tylia, four old friends of the now missing hero learned about his abduction. Without hesitation, they decided to set out for his rescue. They all were experienced fighters themselves, each in their own fashion: A priestess, a mage, a rogue and a swordswoman. According to rumors, their friend had been brought to the Freyn castle in the very east of the land - for what reason, nobody knew.", "background": "taverna"},
+		"effects":
+		[
+			{"action":"next_scene", "scene":"BlueBird"}
+		]
+	},
+	"BlueBird": {
+		"situation": {"text": "When the party stepped outside the tavern, they spotted a giant blue bird in a nearby tree. Never before had they seen such an animal, but it looked rather dangerous, so they braced themselves for battle.\nThe mage prepared a fire spell to burn the beast's feathers and the rogue aimed at its eye with his slingshot. When the bird noticed the four strangers, it emitted a bloodcurling cry and beat its wings.", "background": "plain"},
+		"choice":
+		[
+			{"tag":"Attack with the slingshot!",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":1},
+				{"action":"set_text", "text": "The beast's head was knocked back as the rogue attacked with matchless precision. It quickly took off and disappeared into the skies."},
+				{"action":"set_condition", "condition": "1A"}
+			 ]
+			},
+			{"tag":"Attack with the fire spell!",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":2},
+				{"action":"set_text", "text": "The fireball set the tree on fire and seared the beast's feathers. It quickly took off and disappeared into the skies, leaving behind a trail of smoke."},
+				{"action":"set_condition", "condition": "1B"}
+			 ]
+			},
+			{"tag":"Wait.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":-1},
+				{"action":"set_text", "text": "The beast soared into the air, emitting another cry. In the next moment, it took off eastwards, rose higher and higher and finally disappeared in the clouds."},
+				{"action":"set_condition", "condition": "1C"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene","scene":"City"}
+		]
+	},
+	"City": {
+		"situation": {"text": "The four travelers entered the city of Tylia, which they had to cross on their way to castle Freyn. When they reached the market square, a wealthy-looking man approached them at a hurried pace. \"Excuse me\", he said, \"The four of you look like you could help me out.\nMy wheat transports keep getting attacked by some leprous outcasts who live somewhere in the mountains outside the city. If you bring me their leader's head, you will be greatly rewarded.\"", "background": "city"},
+		"choice":
+		[
+			{"tag":"Accept. Some extra gold could help prepare the coming journey.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":2},
+				{"action":"add_int", "name":"gold", "value":300},
+				{"action":"set_text", "text": "The four fighters left the city to look for the bandits. They investigated the site of the last assault and found a trace that led them into the mountains. In the evening, they found the bandits sitting around their campfire. They waited for the right moment, then they attacked silently. The fight was over quickly, and on the next day, the four heroes presented the bandit leader's head to their employer.\nThe wealthy man was delighted to see his problem was solved and rewarded the heroes generously."},
+				{"action":"set_condition", "condition": "2A"}
+			 ]
+			},
+			{"tag":"Decline. There is no time for this.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":-1},
+				{"action":"set_text", "text": "The heroes declined politely and walked past the rich man, who looked rather disappointed. They had no time for such distractions."},
+				{"action":"set_condition", "condition": "2B"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene","scene":"Flower"}
+		]
+	},
+	"Flower": {
+		"situation": {"text": "After a night of sleep, the heroes left the city and entered the plains of Zoronia. Nothing but green grass would await them here for at least a hundred miles. Two uneventful days of walking passed by, when the mage suddenly told the others to stop.\nShe pointed at a peculiar flower in the grass and said: \"This flower can be used to work powerful magic. It is very rare due to the power that lies within its blossoms. It is forbidden by law to pick it.\"", "background": "plain"},
+		"choice":
+		[
+			{"tag":"Pick the flower. Whatever challenges await the adventurers, greater magic will undoubtedly prove useful.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":5},
+				{"action":"add_item", "item":"Flower", "item_image":"flower"},
+				{"action":"set_text", "text": "The mage picked up the flower and put it into a small box in her pocket."},
+				{"action":"set_condition", "condition": "3A"}
+			 ]
+			},
+			{"tag":"Leave the flower where it is.",
+			 "effects":
+			 [
+				{"action":"set_text", "text": "The mage decided to leave the flower where it was, hoping the next passersby would make the same decision."},
+				{"action":"set_condition", "condition": "3B"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene","scene":"MountainHouse"}
+		]
+	},
+	"MountainHouse": {
+		"situation": {"text": "When the four travellers finally left the plains behind, they started to climb up the mountain path of Astagor. In the afternoon, they came by a small house on the wayside.\nAn elderly man was sitting in the front garden. When he spotted the strangers, he shouted: \"If you are going to rob me, you have bad luck. The mountain goblins already took most of what I have.\" After the heroes had calmed the man down, he invited them in. He explained that goblins kept robbing him and that he was now afraid to starve during winter.\n\"If only I had an armour like yours\", he said and pointed at the swordswoman, \"Then I could defend my property. It would scare those rats off from a mile away. Your armour might even be my size...\"", "background": "house"},
+		"choice":
+		[
+			{"tag":"Give the old man the armour.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":-1},
+				{"action":"remove_item", "item":"Armor"},
+				{"action":"set_text", "text": "The swordswoman sighed and gave the old man her armour. She knew how to defend herself even without it, and she just could not bear the thought of the old man starving in his own home."},
+				{"action":"set_condition", "condition": "4A"}
+			 ]
+			},
+			{"tag":"Keep the armour.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":2},
+				{"action":"set_text", "text": "The swordswoman pretended as if she had not noticed the old man's indirect question. After all, she was on her way to castle Freyn, where she would have to deal with more than just mountain goblins."},
+				{"action":"set_condition", "condition": "4B"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene","scene":"Storm"}
+		]
+	},
+	"Storm": {
+		"situation": {"text": "Shortly after the four travellers had left the old man's cabin, a storm started to brew over they heads. Before the night fell, they sought shelter in a cave they had discovered just below the summit of mount Astagor.\nThe mage led the way with a little flame floating over the palm of her right hand. As they pushed deeper into the darkness, they started to notice sparkling objects in the glow of the fire. The mage lit up the entire chamber.\n\"Look!\", the rogue shouted and pointed towards a considerable heap of gold piled up on the back wall of the cave. \"It's even more than we can carry!\"", "background": "cave"},
+		"choice":
+		[
+			{"tag":"Take as much as you can and leave fast.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"gold", "value":1000},
+				{"action":"set_text", "text": "The heroes filled up their pockets with gold and left the cave quickly, as they expected the owner of the treasure to be back soon. Outside, they were welcomed by heavy rain and wind. They quickly moved forward in search for another shelter, until the priestess suddenly disappeared between two rocks. The others followed her quickly and discovered she had fallen into a cave. Carefully, they descended to her rescue."},
+				{"action":"set_condition", "condition":"gold taken"},
+				{"action":"next_scene", "scene":"Crypt"}
+			 ]
+			},
+			{"tag":"Sleep in the cavern and take the gold with you the next morning.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"gold", "value":1000},
+				{"action":"set_text", "text": "The heroes reached the conclusion that this treasure probably did not belong to anyone anymore and decided they could sleep first. The next morning, they filled their pockets and left the cave, noticing that the storm had settled. In the moment they passed through the exit, they heard a screaking voice. \"Look, Abraxas! They took our gold!\"\nOut of the sudden, they were surrounded by strange humanoid mountain creatures that were armed to their teeth. \"Give it back to us!\", they shouted, \"Give it back!\""},
+				{"action":"set_condition", "condition":"gold taken"},
+				{"action":"next_scene", "scene":"MountainPass"}
+			 ]
+			},
+			{"tag":"Sleep in the cavern and leave without the gold.",
+			 "effects":
+			 [
+				{"action":"set_text", "text": "Although the sight of such a huge amount of gold was tempting, the heroes decided it would be best to leave it alone. They spent the night sleeping on the hard coins and left the cave the next morning to notice that the storm had settled.\nIn the moment they passed through the exit, they heard a screaking voice. \"Look, Abraxas! There was humans in our cave!\" Out of the sudden, they were surrounded by strange humanoid mountain creatures that were armed to their teeth."},
+				{"action":"next_scene", "scene":"MountainPass"}
+			 ]
+			},
+			{"tag":"Don't touch the gold and leave now.",
+			 "effects":
+			 [
+				{"action":"set_text", "text": "Although the sight of such a huge amount of gold was tempting, the heroes decided it would be best to leave it alone. They left the cave quickly, as they expected the owner of the treasure to be back soon. Outside, they were welcomed by heavy rain and wind.\nThey quickly moved forward in search for another shelter, until the priestess suddenly disappeared between two rocks. The others followed her quickly and discovered she had fallen into a cave. Carefully, they descended to her rescue."},
+				{"action":"next_scene", "scene":"Crypt"}
+			 ]
+			}
+		],
+		"effects":
+		[
+		]
+	},
+	"Crypt": {
+		"situation": {"text": "\"Thank you for coming after me, but I am not hurt\", said the priestess when her friends arrived, \"What is this place?\" The mage lit up the flame over her palm again. The heroes looked around and found themselves in an ancient crypt with ornaments on the walls and an altar at the back wall. Water dripped on their heads through the hole in the ceiling which had served as their entrance.\nThe priestess suddenly ran up to the altar and picked up an ancient tome from it. The title said: \"Grimoire of forbidden spells\".", "background": "crypta"},
+		"choice":
+		[
+			{"tag":"Put the book where it was.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":-1},
+				{"action":"set_text", "text": "After a short conversation, the whole group agreed that those spells were probably forbidden for good reasons. Regardless, the crypt would serve as a perfect shelter for the night. The next morning, the four heroes climbed back out through the hole to continue their journey."},
+				{"action":"set_condition", "condition": "5.1A"}
+			 ]
+			},
+			{"tag":"Take the book with you.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":2},
+				{"action":"add_item", "item":"Grimoire", "item_image":"book"},
+				{"action":"set_text", "text": "Forbidden spells are probably forbidden because they are powerful, the group thought. Power was exactly what they needed for castle Freyn. They decided to keep the book and to stay in the the crypt for the night. The next morning, the four heroes climbed back out through the hole to continue their journey."},
+				{"action":"set_condition", "condition": "5.1B"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene", "scene":"Hills"}
+		]
+	},
+	"MountainPass": {
+		"situation": {"text":"The strange creatures jumped around the human intruders, waving around with their weapons. \"I count eight of them\", the rogue whispered. \"I think we can handle them\", the swordswoman replied.", "background": "mountain"},
+		"choice":
+		[
+			{"tag":"Attack them.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":3},
+				{"action":"set_text", "text": "The mage and the priestess prepared to cast their magic spells, and the rogue and the swordswoman got ready to defend them. The mountain creatures attacked, but shortly after the fight had started, the few remaining creatures retreated in panic."},
+				{"action":"set_condition", "condition": "5.2A"}
+			 ]
+			},
+			{"tag":"Show them your empty pockets and suggest a peaceful solution.",
+			"conditions":["UNSET:gold taken"],
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":-2},
+				{"action":"set_text", "text": "The heroes showed the mountain creatures their empty pockets to prove that they had not taken any of the treasure. \"Let us go, and we will neither harm you nor come back to steal your gold\", the priestess said, \"We only sought shelter from the storm.\" The creatures looked at each other and finally nodded. \"Go away now, humans\", they hissed, \"Go away and never come back.\""},
+				{"action":"set_condition", "condition": "5.2B"}
+			 ]
+			},
+			{"tag":"Give them back their gold and suggest a peaceful solution.",
+			"conditions":["SET:gold taken"],
+			 "effects":
+			 [
+				{"action":"add_int", "name":"gold", "value":-1000},
+				{"action":"set_text", "text": "The heroes emptied their pockets. \"We did not think this gold belonged to anyone\", the priestess said, \"You can take it all back. We apologise for this misunderstanding.\" The creatures looked at each other and finally nodded. \"Go away now, humans\", they hissed, \"Go away and never come back.\""},
+				{"action":"unset_condition", "condition":"gold taken"},
+				{"action":"set_condition", "condition": "5.2C"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene", "scene":"Hills"}
+		]
+	},
+	"Hills": {
+		"situation": {"text": "After more than a week of travelling, the group finally came close to castle Freyn. They had left behind the mountains and now walked across endless plains again. One day at noon, when they reached a hilltop, they could see castle Freyn's towers at the horizon. Suddenly, the rogue whispered \"Quiet\" and pointed towards the valley in front of them, where four wild horses with blue manes were drinking from a small river.\n\"They cannot get anywhere if we spread out a little\", the rogue said, \"With horses, we could travel much faster. What do you think?\"", "background": "plain"},
+		"choice":
+		[
+			{"tag":"Try to catch and tame the horses with magic spells.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":1},
+				{"action":"add_item", "item":"horses", "item_image":"horse"},
+				{"action":"set_text", "text": "The four heroes carried out the manoeuvre proposed by the rogue and succeeded in catching two of the four horses, who had held their heads low to drink, unaware of the approaching humans. The mage and the priestess used their magic to calm the animals down and eventually got up on their backs. The rogue and the swordswoman joined them, and together they rode forward to castle Freyn."},
+				{"action":"set_condition", "condition": "6A"}
+			 ]
+			},
+			{"tag":"Leave the horses alone.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":-1},
+				{"action":"set_text", "text": "After watching the wild animals a little longer, the heroes decided they did not need to rid them of their freedom. The castle was no longer far away anyways, so the party moved on by foot."},
+				{"action":"set_condition", "condition": "6B"}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"set_condition", "condition":"win", "conditions":["SET:1C", "SET:2B", "SET:3B", "SET:4A", "UNSET:gold taken", "UNSET:5.1B", "UNSET:5.2A", "SET:6B"]},
+			{"action":"next_scene", "scene":"LastTest", "conditions":["SET:win"]},
+			{"action":"next_scene", "scene":"Test1", "conditions":["UNSET:win"]}
+		]
+	},
+	"Test1": {
+		"situation": {"text": "As the heroes approached the castle, they noticed that a huge wall protected it from intruders. However, before they could reach it, they made out an approaching dust cloud a few hills further north. Within a few moments, they were surrounded by about twenty riders wearing the symbol of the king. \"We are the King's Guard\", one of them, apparently an officer, shouted while the horses came to a stop. \"This is a strange spot of land, and we check on everyone who passes through.\nThe landscape east from here is highly dangerous and we discourage you to go there. However, it is suspicious that anybody even comes out this far. Please do not be angry, but we have to search you and ask you about your intentions.\"", "background": "tower"},
+		"choice":
+		[
+			{"tag":"Refuse and fight the King's Guard.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":3},
+				{"action":"set_text", "text": "The four heroes refused to tell or show the King's Guard anything but their disregard for royal authority. The conversation heated up quickly, until the King's Guard's officer pulled out his sabre and commanded his men to attack. The four heroes fought back with all their might, but they were soon overwhelmed.\nThe King's Guard spared their lives, but they brought their captives all the way back to Tylia, where they were presented to a court. After all they had gone through, the party had failed to rescue their friend in castle Freyn and were now thrown into prison for a long time."}
+			 ]
+			},
+			{"tag":"Let them search you.",
+			 "effects":
+			 [
+				{"action":"add_int", "name":"battle points", "value":-2},
+				{"action":"set_condition", "condition": "Test1 failed", "conditions":["SET:2A"]},
+				{"action":"set_condition", "condition": "Test1 failed", "conditions":["SET:3A"]},
+				{"action":"set_condition", "condition": "Test1 failed", "conditions":["SET:5.1B"]},
+				{"action":"set_text", "text": "When he came closer to the strangers, his movement suddenly froze. \"Wait a minute!\", he called, \"We have been looking for you people! Men! Disarm them, enchain them and search their belongings.\" Before the heroes could do anything, the King's Guard fulfilled the officer's order. He said: \"I hereby arrest you for: helping a vigilante from Tylia in murdering a group of poor thieves in cold blood.", "conditions":["SET:2A"]},
+				{"action":"set_text", "text": "In addition, you have picked an endangered flower protected by the law.", "conditions":["SET:2A", "SET:3A"]},
+				{"action":"add_text", "text": "And you possess a dangerous forbidden book which is only meant to harm others.", "conditions":["SET:2A", "SET:3A", "SET:5.1B"]},
+				{"action":"set_text", "text": "The King's Guard's officer jumped off his horse. The heroes could do nothing to prevent his men from searching their belongings. The events took their inevitable course when the officer said: \"I hereby arrest you for picking an endangered flower protected by the law.\"", "conditions":["UNSET:2A", "SET:3A"]},
+				{"action":"set_text", "text": "In addition, you possess a dangerous forbidden book which is only meant to harm others.", "conditions":["UNSET:2A", "SET:3A", "SET:5.1B"]},
+				{"action":"set_text", "text": "The King's Guard's officer jumped off his horse. The heroes could do nothing to prevent his men from searching their belongings. The events took their inevitable course when the officer said: \"I hereby arrest you for possessing a dangerous forbidden book which is only meant to harm others.", "conditions":["UNSET:2A", "UNSET:3A", "SET:5.1B"]},
+				{"action":"set_text","text":"When the King's Guards officer came closer to the strangers, his movement suddenly froze. \"Wait a minute!\", he called, \"We have been looking for you people! Men! Disarm them, enchain them and search their belongings.\" Before the heroes could do anything, the King's Guard fulfilled the officer's order. He said: \"I hereby arrest you for helping a vigilante from Tylia in murdering a group of poor thieves in cold blood. In addition, you are possessing a dangerous forbidden book which is only meant to harm others.\"", "conditions":["SET:2A", "UNSET:3A", "SET:5.1B"]},
+				{"action":"set_text", "text": "After the heroes had been searched, they explained that a friend had disappeared and that they were hoping to find him where they were going. The officer nodded and repeated his recommendation not to enter the eastern territory. Then the King's Guard took off on their horses and disappeared in a dust cloud.", "conditions":["UNSET:2A", "UNSET:3A", "UNSET:5.1B"]},
+				{"action":"next_scene", "scene": "Jail", "conditions":["SET:Test1 failed"]},
+				{"action":"next_scene", "scene": "Test2", "conditions":["UNSET:Test1 failed"]}
+			 ]
+			}
+		],
+		"effects":
+		[
+		]
+	},
+	"Jail": {
+		"situation": {"text":"The King's Guard brought their captives back to Tylia, where they were presented to a court. After all they had gone through, the party had failed to rescue their friend in castle Freyn and was now thrown into prison for a long time."}
+	},
+	"Test2": {
+		"situation": {"text": "The wall the heroes had already seen from far away grew bigger with every step they took. When they arrived, they realised they would have to climb it in order to reach castle Freyn. The swordswoman went up first, followed by the rogue, the priestess and the mage.", "background": "castle"},
+		"effects":
+		[
+			{"action":"set_condition", "condition": "1 failed", "conditions":["SET:1A"]},
+			{"action":"set_condition", "condition": "1 failed", "conditions":["SET:1B"]},
+			{"action":"set_condition", "condition": "Test2 failed", "conditions":["SET:1 failed"]},
+			{"action":"set_condition", "condition": "Test2 failed", "conditions":["SET:4B"]},
+			{"action":"set_condition", "condition": "Test2 failed", "conditions":["SET:gold taken"]},
+			{"action":"set_text", "text": "Shortly before the heroes would start the descent, a giant shadow passed by them. They turned their heads up and realised in horror that the strange bird they had encountered outside the tavern had returned to take revenge on them. He swooped down on the swordswoman, who lost grip and started to fall, crashing on the heads of her teammates, and they all fell to certain death.", "conditions":["SET:1 failed", "UNSET:4B", "UNSET:gold taken"]},
+			{"action":"set_text", "text": "Shortly before the heroes would start the descent, a giant shadow passed by them. They turned their heads up and realised in horror that the strange bird they had encountered outside the tavern had returned to take revenge on them. He swooped down on the swordswoman, who tried to hold on, but her armour was too heavy. She lost grip and started to fall, crashing on the heads of her teammates, and they all fell to certain death.", "conditions":["SET:1 failed", "SET:4B", "UNSET:gold taken"]},
+			{"action":"set_text", "text": "The four heroes had climbed about half the wall, when the swordswoman slipped of the rock because the weight of her armour pulled her down. She lost balance and started to fall, crashing on the heads of her teammates, and they all fell to certain death.", "conditions":["UNSET:1 failed", "SET:4B", "UNSET:gold taken"]},
+			{"action":"set_text", "text": "The four heroes had climbed about half the wall, when the swordswoman slipped of the rock because the weight of her armour pulled her down. She lost balance and started to fall, crashing on the head of the rogue, who tried to hold her, but combined with the weight of the gold in his pocket, she was too heavy for him. So they both fell, ripping their friends away from the wall as well.", "conditions":["UNSET:1 failed", "SET:3A", "SET:gold taken"]},
+			{"action":"set_text", "text": "Shortly before the heroes would start the descent, a giant shadow passed by them. They turned their heads up and realised in horror that the strange bird they had encountered outside the tavern had returned to take revenge on them. He swooped down on the swordswoman, who tried to hold on, but her armour was too heavy. She lost grip and started to fall, crashing on the head of the rogue.\nHe tried to hold her, but combined with the weight of the gold in his pocket, she was too heavy for him. So they both fell, ripping their friends away from the wall as well.", "conditions":["SET:1 failed", "SET:4B", "SET:gold taken"]},
+			{"action":"set_text", "text": "The four heroes had climbed about half the wall, when the rogue slipped of the rock because the weight of the gold in his pockets pulled him down. He lost balance and grabbed the swordswoman's leg, who then also started falling, crashing on the heads of her teammates, and they all fell to certain death.", "conditions":["UNSET:1 failed", "UNSET:4B", "SET:gold taken"]},
+			{"action":"set_text", "text": "Shortly before the heroes would start the descent, a giant shadow passed by them. They turned their heads up and realised in horror that the strange bird they had encountered outside the tavern had returned to take revenge on them. He swooped down on the rogue, who could have regained balance if it had not been for the weight of the gold in his pockets that pulled him down.\nHe grabbed the swordswoman's leg, who then also started falling, crashing on the heads of her teammates, and they all fell to certain death.", "conditions":["SET:1 failed", "UNSET:4B", "SET:gold taken"]},
+			{"action":"set_text", "text": "The four of them climbed the wall with great effort, happy about everything they did not have to carry with them. After a terribly long time without solid ground beneath their feet, they finally arrived at the other side.", "conditions":["UNSET:Test2 failed"]},
+			{"action":"next_scene", "scene": "Test3", "conditions":["UNSET:Test2 failed"]}
+		]
+	},
+	"Test3": {
+		"situation": {"text": "The four heroes had barely gotten down from the wall, when a huge monster appeared, blocking their path to the castle. \"I do not like you\", it snorted, \"my eyes see everything.", "background": "castle"},
+		"effects":
+		[
+			{"action":"set_condition", "condition": "Test3 failed", "conditions":["SET:6A"]},
+			{"action":"set_condition", "condition": "Test3 failed", "conditions":["SET:5.2A"]},
+			{"action":"set_text", "text": "You made animals your slaves. I will make you see how it feels\" The heroes got ready to fight, but it was hopeless: The giant wiped them away like flies, smashed them against the wall and crushed their bones. He enchained them next to the wall and kept them as helpless pets for a very long time.", "conditions":["UNSET:5.2A", "SET:6A"]},
+			{"action":"set_text", "text": "You killed the harmless inhabitants of the mountain caves. You have no regard for life and I shall show no mercy.\" The heroes got ready to fight, but it was hopeless: The giant wiped them away like flies, smashed them against the wall and crushed their bones. None of them got away alive.", "conditions":["SET:5.2A", "UNSET:6A"]},
+			{"action":"set_text", "text": "Not only did you make animals your slaves, but you killed the harmless inhabitants of the mountain caves. You have no regard for life and I shall show no mercy.\" The heroes got ready to fight, but it was hopeless: The giant wiped them away like flies, smashed them against the wall and crushed their bones. None of them got away alive.", "conditions":["SET:5.2A", "SET:6A"]},
+		]
+	},
+	"LastTest": {
+		"situation": {"text": "As the heroes approached the castle, they noticed, even though they were still far away, that a gigantic wall protected it from intruders. However, before they got close to it, they made out a dust cloud a few hills further north that approached them quickly. Within a few moments, they were surrounded by about twenty riders wearing the symbol of castle Freyn.\nThey prepared to defend themselves, but one of the riders held up his hand and got off his horse. \"We know who you are\", he said\", \"We already heard about you and what you have done to come here. You want to save your friend? We had good reason to imprison him, but I will give you a chance.\nYou all have pure hearts, but I want to know how close of a friend he is to you, so I can be sure he is as good as you are.\" So tell me first, what is his name?"},
+		"choice":
+		[
+			{"tag":"... Fereg."
+			},
+			{"tag":"... Garoth.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q1"}
+			 ]
+			},
+			{"tag":"... Iorthan."
+			},
+			{"tag":"... Kalyrn."
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene", "scene":"Eyes"}
+		]
+	},
+	"Eyes": {
+		"situation": {"text": "Can you tell me the colour of his eyes?"},
+		"choice":
+		[
+			{"tag":"He had green eyes.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q2", "conditions":["SET:GREEN_EYES"]}
+			 ]
+			},
+			{"tag":"He had blue eyes.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q2", "conditions":["SET:BLUE_EYES"]}
+			 ]
+			},
+			{"tag":"He had black eyes.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q2", "conditions":["SET:BLACK_EYES"]}
+			 ]
+			},
+			{"tag":"He had brown eyes.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q2", "conditions":["SET:BROWN_EYES"]}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene", "scene":"Hair"}
+		]
+	},
+	"Hair": {
+		"situation": {"text": "What colour is his hair?"},
+		"choice":
+		[
+			{"tag":"Black.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q3", "conditions":["SET:BLACK_HAIR"]}
+			 ]
+			},
+			{"tag":"Brown.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q3", "conditions":["SET:BROWN_HAIR"]}
+			 ]
+			},
+			{"tag":"Blonde.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q3", "conditions":["SET:BLONDE_HAIR"]}
+			 ]
+			},
+			{"tag":"Red.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q3", "conditions":["SET:RED_HAIR"]}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene", "scene":"Weapon"}
+		]
+	},
+	"Weapon": {
+		"situation": {"text": "Which weapon does he fight with?"},
+		"choice":
+		[
+			{"tag":"With a battle axe.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q4", "conditions":["SET:BATTLE_AXE"]}
+			 ]
+			},
+			{"tag":"With a bow.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q4", "conditions":["SET:BOW"]}
+			 ]
+			},
+			{"tag":"With a longsword.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q4", "conditions":["SET:LONGSWORD"]}
+			 ]
+			},
+			{"tag":"With a magic staff.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q4", "conditions":["SET:MAGIC_STAFF"]}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene", "scene":"Armor"}
+		]
+	},
+	"Armor": {
+		"situation": {"text": "Which armour does he wear?"},
+		"choice":
+		[
+			{"tag":"A shiny chainmail.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q5", "conditions":["SET:SHINY_CHAINMAIL"]}
+			 ]
+			},
+			{"tag":"A red cuirass.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q5", "conditions":["SET:RED_CUIRASS"]}
+			 ]
+			},
+			{"tag":"A black robe.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q5", "conditions":["SET:BLACK_ROBE"]}
+			 ]
+			},
+			{"tag":"A leather armor.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q5", "conditions":["SET:LEATHER_ARMOR"]}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene", "scene":"Emblem"}
+		]
+	},
+	"Emblem": {
+		"situation": {"text": "Which is the emblem of his house:"},
+		"choice":
+		[
+			{"tag":"A red falcon.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q6", "conditions":["SET:RED_FALCON"]}
+			 ]
+			},
+			{"tag":"A purple bear.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q6", "conditions":["SET:PURPLE_BEAR"]}
+			 ]
+			},
+			{"tag":"A green snake.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q6", "conditions":["SET:GREEN_SNAKE"]}
+			 ]
+			},
+			{"tag":"A white rabbit.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q6", "conditions":["SET:WHITE_RABBIT"]}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"next_scene", "scene":"Lost"}
+		]
+	},
+	"Lost": {
+		"situation": {"text": "And finally: He was hurt in the Great Battle of Tarion. As a good friend, you must know that he lost his...?"},
+		"choice":
+		[
+			{"tag":"... left index finger.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q7", "conditions":["SET:LEFT_FINGER"]}
+			 ]
+			},
+			{"tag":"... right index finger.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q7", "conditions":["SET:RIGHT_FINGER"]}
+			 ]
+			},
+			{"tag":"... left ear.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q7", "conditions":["SET:LEFT_EAR"]}
+			 ]
+			},
+			{"tag":"... right ear.",
+			 "effects":
+			 [
+				{"action":"set_condition", "condition":"Q7", "conditions":["SET:RIGHT_EAR"]}
+			 ]
+			}
+		],
+		"effects":
+		[
+			{"action":"set_condition", "condition":"WinGame", "conditions":["SET:Q1", "SET:Q2", "SET:Q3", "SET:Q4", "SET:Q5", "SET:Q6", "SET:Q7"]},
+			{"action":"next_scene", "scene":"HappyEnd", "conditions":["SET:WinGame"]},
+			{"action":"next_scene", "scene":"BadEnd", "conditions":["UNSET:WinGame"]}
+		]
+	},
+	"HappyEnd": {
+		"situation": {"text": "\"Very well, if four people like you can answer for this Garoth, I will set him free. Maybe you will someday learn about why we captured him in the first place - but this is another story. My men will go and set him free. He will meet you here before sundown.\"", "background": "castle"}
+	},
+	"BadEnd": {
+		"situation": {"text": "\"I'm afraid he is not such a good friend of yours after all. Go home now and live in peace. Forget about him. You cannot free him from castle Freyn.\" Having said that, the stranger got back on his horse and rode away. Dumbfounded, the four heroes watched him and his men disappear in a faraway dust cloud, then they looked at each other. Could this be the end of their journey? They looked backed at the silhouette of castle Weyr and started walking.", "background": "tower"}
+	}
+}
