@@ -116,7 +116,15 @@ public class SceneLoader {
 			for(int i=0; i<images.length(); i++)
 			{
 				JSONObject image = images.getJSONObject(i);
-				String label = image.getString("image_label");
+				if(image.has("conditions"))
+				{
+					JSONArray conditions = image.getJSONArray("conditions");
+					if(!Condition.ConditionsTrue(conditions))
+					{
+						continue;
+					}
+				}
+				String label = image.getString("image");
 				int x = image.getInt("x");
 				int y = image.getInt("y");
 				view.addImagePositioning(label, x, y);
@@ -305,13 +313,13 @@ public class SceneLoader {
 			}
 			case Effect.ACTION_SET_BACKGROUND:
 			{
-				String file = json.getString("image_label");
+				String file = json.getString("image");
 				view.changeBackground(file);
 				break;
 			}
 			case Effect.ACTION_ADD_FOREGROUND_IMAGE:
 			{
-				String label = json.getString("image_label");
+				String label = json.getString("image");
 				int x = json.getInt("x");
 				int y = json.getInt("y");
 				view.addImagePositioning(label, x, y);

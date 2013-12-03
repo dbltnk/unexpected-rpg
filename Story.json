@@ -3,8 +3,6 @@
 		"situation": {"text": "Press a key to start game."},
 		"effects":
 		[
-			{"action":"next_scene", "scene":"Intro1"},
-			{"action":"add_item", "item":"Armor"},
 			{"action":"import_image", "filename":"./images/bg_abduct_128_blur_950.png", "label":"abduct"},
 			{"action":"import_image", "filename":"./images/bg_black_950.png", "label":"black"},
 			{"action":"import_image", "filename":"./images/bg_castle_128_blur_950.png", "label":"castle"},
@@ -48,7 +46,8 @@
 			{"action":"import_image", "filename":"./images/ui_bag_trix_scaled.png", "label":"ui_bag"},
 			{"action":"import_image", "filename":"./images/ui_gold_compo.png", "label":"ui_gold"},
 			{"action":"import_image", "filename":"./images/ui_papyrus_trix.png", "label":"papyrus"},
-			{"action":"import_image", "filename":"./images/ui_xp_compo.png", "label":"xp_compo"}
+			{"action":"import_image", "filename":"./images/ui_xp_compo.png", "label":"xp_compo"},
+			{"action":"next_scene", "scene":"Intro1"}
 		]
 	},
 	"Intro1": {
@@ -256,27 +255,67 @@
 		]
 	},
 	"Abduction": {
-		"situation": {"text": "Our story begins years after this victorious battle, which had finally brought  peace upon our land. It was a dark, yet warm summer night and the great hero was resting in his home. When he suddenly woke up to a noise in his bedroom, he looked up to see a dark figure standing at the foot of his bed. The next morning, he had disappeared.", "background": "abduct"},
+		"situation": {"text": "Our story begins years after this victorious battle, which had finally brought  peace upon our land. It was a dark, yet warm summer night and the great hero was resting in his home. When he suddenly woke up to a noise in his bedroom, he looked up to see a dark figure standing at the foot of his bed. The next morning, he had disappeared.",
+						"background": "abduct"},
 		"effects":
 		[
-			{"action":"next_scene", "scene":"Tavern"}
+			{"action":"next_scene", "scene":"Tavern"},
+			{"action":"add_item", "item":"Armor", "image":"armor"}
 		]
 	},
 	"Tavern": {
-		"situation": {"text": "A few days later, in a tavern just outside the city of Tylia, four old friends of the now missing hero learned about his abduction. Without hesitation, they decided to set out for his rescue. They all were experienced fighters themselves, each in their own fashion: A priestess, a mage, a rogue and a swordswoman. According to rumors, their friend had been brought to the Freyn castle in the very east of the land - for what reason, nobody knew.", "background": "taverna"},
+		"situation": {"text": "A few days later, in a tavern just outside the city of Tylia, four old friends of the now missing hero learned about his abduction. Without hesitation, they decided to set out for his rescue. They all were experienced fighters themselves, each in their own fashion: A priestess, a mage, a rogue and a swordswoman. According to rumors, their friend had been brought to the Freyn castle in the very east of the land - for what reason, nobody knew.",
+						"background": "taverna",
+						"images":
+						[
+							{"image":"priest", "x":100, "y":150},
+							{"image":"mage", "x":250, "y":150},
+							{"image":"rogue", "x":400, "y":150},
+							{"image":"fighter", "x":550, "y":150, "conditions":["NO_ITEM:Armor"]},
+							{"image":"fighter_armor", "x":550, "y":150, "conditions":["ITEM:Armor"]}
+						]},
 		"effects":
 		[
-			{"action":"next_scene", "scene":"BlueBird"}
+			{"action":"next_scene", "scene":"BlueBird1"}
 		]
 	},
-	"BlueBird": {
-		"situation": {"text": "When the party stepped outside the tavern, they spotted a giant blue bird in a nearby tree. Never before had they seen such an animal, but it looked rather dangerous, so they braced themselves for battle.\nThe mage prepared a fire spell to burn the beast's feathers and the rogue aimed at its eye with his slingshot. When the bird noticed the four strangers, it emitted a bloodcurling cry and beat its wings.", "background": "plain"},
+	"BlueBird1": {
+		"situation": {"text": "When the party stepped outside the tavern, they spotted a giant blue bird in a nearby tree. Never before had they seen such an animal, but it looked rather dangerous, so they braced themselves for battle.",
+						"background": "plain",
+						"reset_images":true,
+						"images":
+						[
+							{"image":"priest", "x":100, "y":100},
+							{"image":"mage", "x":100, "y":200},
+							{"image":"rogue", "x":250, "y":100},
+							{"image":"fighter", "x":250, "y":200, "conditions":["NO_ITEM:Armor"]},
+							{"image":"fighter_armor", "x":250, "y":200, "conditions":["ITEM:Armor"]},
+							{"image":"bird", "x":550, "y":0}
+						]},
+		"effects":
+		[
+			{"action":"next_scene","scene":"BlueBird2"}
+		]
+	},
+	"BlueBird2": {
+		"situation": {"text": "The mage prepared a fire spell to burn the beast's feathers and the rogue aimed at its eye with his slingshot. When the bird noticed the four strangers, it emitted a bloodcurling cry and beat its wings.",
+						"background": "plain",
+						"reset_images":true,
+						"images":
+						[
+							{"image":"mage", "x":200, "y":150},
+							{"image":"rogue", "x":400, "y":150},
+							{"image":"bird_fly", "x":300, "y":0}
+						]},
 		"choice":
 		[
 			{"tag":"Attack with the slingshot!",
 			 "effects":
 			 [
 				{"action":"add_int", "name":"battle points", "value":1},
+				{"action":"reset_images"},
+				{"action":"add_image", "image":"bird_bleed", "x":300, "y":0},
+				{"action":"add_image", "image":"rogue", "x":400, "y":150},
 				{"action":"set_text", "text": "The beast's head was knocked back as the rogue attacked with matchless precision. It quickly took off and disappeared into the skies."},
 				{"action":"set_condition", "condition": "1A"}
 			 ]
@@ -285,6 +324,9 @@
 			 "effects":
 			 [
 				{"action":"add_int", "name":"battle points", "value":2},
+				{"action":"reset_images"},
+				{"action":"add_image", "image":"bird_smoke", "x":300, "y":0},
+				{"action":"add_image", "image":"mage", "x":200, "y":150},
 				{"action":"set_text", "text": "The fireball set the tree on fire and seared the beast's feathers. It quickly took off and disappeared into the skies, leaving behind a trail of smoke."},
 				{"action":"set_condition", "condition": "1B"}
 			 ]
@@ -293,6 +335,10 @@
 			 "effects":
 			 [
 				{"action":"add_int", "name":"battle points", "value":-1},
+				{"action":"reset_images"},
+				{"action":"add_image", "image":"bird_fly", "x":550, "y":-20},
+				{"action":"add_image", "image":"mage", "x":200, "y":150},
+				{"action":"add_image", "image":"rogue", "x":400, "y":150},
 				{"action":"set_text", "text": "The beast soared into the air, emitting another cry. In the next moment, it took off eastwards, rose higher and higher and finally disappeared in the clouds."},
 				{"action":"set_condition", "condition": "1C"}
 			 ]
@@ -304,7 +350,19 @@
 		]
 	},
 	"City": {
-		"situation": {"text": "The four travelers entered the city of Tylia, which they had to cross on their way to castle Freyn. When they reached the market square, a wealthy-looking man approached them at a hurried pace. \"Excuse me\", he said, \"The four of you look like you could help me out.\nMy wheat transports keep getting attacked by some leprous outcasts who live somewhere in the mountains outside the city. If you bring me their leader's head, you will be greatly rewarded.\"", "background": "city"},
+		"situation": {"text": "The four travelers entered the city of Tylia, which they had to cross on their way to castle Freyn. When they reached the market square, a wealthy-looking man approached them at a hurried pace. \"Excuse me\", he said, \"The four of you look like you could help me out.\nMy wheat transports keep getting attacked by some leprous outcasts who live somewhere in the mountains outside the city. If you bring me their leader's head, you will be greatly rewarded.\"",
+						"background": "town",
+						"reset_images":true,
+						"images":
+						[
+							{"image":"priest", "x":120, "y":160},
+							{"image":"mage", "x":580, "y":160},
+							{"image":"rogue", "x":240, "y":180},
+							{"image":"fighter", "x":460, "y":180, "conditions":["NO_ITEM:Armor"]},
+							{"image":"fighter_armor", "x":460, "y":180, "conditions":["ITEM:Armor"]},
+							{"image":"richguy", "x":350, "y":140}
+						]
+					},
 		"choice":
 		[
 			{"tag":"Accept. Some extra gold could help prepare the coming journey.",
@@ -312,7 +370,26 @@
 			 [
 				{"action":"add_int", "name":"battle points", "value":2},
 				{"action":"add_int", "name":"gold", "value":300},
-				{"action":"set_text", "text": "The four fighters left the city to look for the bandits. They investigated the site of the last assault and found a trace that led them into the mountains. In the evening, they found the bandits sitting around their campfire. They waited for the right moment, then they attacked silently. The fight was over quickly, and on the next day, the four heroes presented the bandit leader's head to their employer.\nThe wealthy man was delighted to see his problem was solved and rewarded the heroes generously."},
+				{"action":"set_background", "image":"mountain"},
+				{"action":"reset_images"},
+				{"action":"add_image", "image":"rider", "x":250, "y":80},
+				{"action":"add_image", "image":"rider", "x":350, "y":100},
+				{"action":"add_image", "image":"rider", "x":450, "y":80},
+				{"action":"add_image", "image":"priest", "x":120, "y":160},
+				{"action":"add_image", "image":"mage", "x":580, "y":160},
+				{"action":"add_image", "image":"rogue", "x":240, "y":180},
+				{"action":"add_image", "image":"fighter", "x":460, "y":180, "conditions":["NO_ITEM:Armor"]},
+				{"action":"add_image", "image":"fighter_armor", "x":460, "y":180, "conditions":["ITEM:Armor"]},
+				{"action":"set_text", "text": "The four fighters left the city to look for the bandits. They investigated the site of the last assault and found a trace that led them into the mountains. In the evening, they found the bandits sitting around their campfire. They waited for the right moment, then they attacked silently. The fight was over quickly, and on the next day, the four heroes presented the bandit leader's head to their employer."},
+				{"action":"set_background", "image":"town"},
+				{"action":"reset_images"},
+				{"action":"add_image", "image":"richguy", "x":350, "y":140},
+				{"action":"add_image", "image":"priest", "x":120, "y":160},
+				{"action":"add_image", "image":"mage", "x":580, "y":160},
+				{"action":"add_image", "image":"rogue", "x":240, "y":180},
+				{"action":"add_image", "image":"fighter", "x":460, "y":180, "conditions":["NO_ITEM:Armor"]},
+				{"action":"add_image", "image":"fighter_armor", "x":460, "y":180, "conditions":["ITEM:Armor"]},
+				{"action":"set_text", "text": "The wealthy man was delighted to see his problem was solved and rewarded the heroes generously."},
 				{"action":"set_condition", "condition": "2A"}
 			 ]
 			},
@@ -320,6 +397,13 @@
 			 "effects":
 			 [
 				{"action":"add_int", "name":"battle points", "value":-1},
+				{"action":"reset_images"},
+				{"action":"add_image", "image":"rogue", "x":300, "y":120},
+				{"action":"add_image", "image":"fighter", "x":400, "y":120, "conditions":["NO_ITEM:Armor"]},
+				{"action":"add_image", "image":"fighter_armor", "x":400, "y":120, "conditions":["ITEM:Armor"]},
+				{"action":"add_image", "image":"priest", "x":220, "y":150},
+				{"action":"add_image", "image":"mage", "x":480, "y":150},
+				{"action":"add_image", "image":"richguy", "x":350, "y":180},
 				{"action":"set_text", "text": "The heroes declined politely and walked past the rich man, who looked rather disappointed. They had no time for such distractions."},
 				{"action":"set_condition", "condition": "2B"}
 			 ]
@@ -327,18 +411,54 @@
 		],
 		"effects":
 		[
-			{"action":"next_scene","scene":"Flower"}
+			{"action":"next_scene","scene":"Flower1"}
 		]
 	},
-	"Flower": {
-		"situation": {"text": "After a night of sleep, the heroes left the city and entered the plains of Zoronia. Nothing but green grass would await them here for at least a hundred miles. Two uneventful days of walking passed by, when the mage suddenly told the others to stop.\nShe pointed at a peculiar flower in the grass and said: \"This flower can be used to work powerful magic. It is very rare due to the power that lies within its blossoms. It is forbidden by law to pick it.\"", "background": "plain"},
+	"Flower1": {
+		"situation": {"text": "After a night of sleep, the heroes left the city and entered the plains of Zoronia. Nothing but green grass would await them here for at least a hundred miles. Two uneventful days of walking passed by, when the mage suddenly told the others to stop.",
+						"background": "plain",
+						"reset_images":true,
+						"images":
+						[
+							{"image":"priest", "x":200, "y":120},
+							{"image":"mage", "x":350, "y":120},
+							{"image":"rogue", "x":50, "y":120},
+							{"image":"fighter", "x":500, "y":120, "conditions":["NO_ITEM:Armor"]},
+							{"image":"fighter_armor", "x":500, "y":120, "conditions":["ITEM:Armor"]}
+						]
+					},
+		"effects":
+		[
+			{"action":"next_scene","scene":"Flower2"}
+		]
+	},
+	"Flower2": {
+		"situation": {"text": "She pointed at a peculiar flower in the grass and said: \"This flower can be used to work powerful magic. It is very rare due to the power that lies within its blossoms. It is forbidden by law to pick it.\"",
+						"background": "plain",
+						"reset_images":true,
+						"images":
+						[
+							{"image":"priest", "x":200, "y":120},
+							{"image":"mage", "x":350, "y":160},
+							{"image":"rogue", "x":50, "y":120},
+							{"image":"fighter", "x":500, "y":120, "conditions":["NO_ITEM:Armor"]},
+							{"image":"fighter_armor", "x":500, "y":120, "conditions":["ITEM:Armor"]},
+							{"image":"mob_flower", "x":450, "y":250}
+						]
+					},
 		"choice":
 		[
 			{"tag":"Pick the flower. Whatever challenges await the adventurers, greater magic will undoubtedly prove useful.",
 			 "effects":
 			 [
 				{"action":"add_int", "name":"battle points", "value":5},
-				{"action":"add_item", "item":"Flower", "item_image":"flower"},
+				{"action":"reset_images"},
+				{"action":"add_image", "image":"priest", "x":200, "y":120},
+				{"action":"add_image", "image":"mage", "x":350, "y":160},
+				{"action":"add_image", "image":"rogue", "x":50, "y":120},
+				{"action":"add_image", "image":"fighter", "x":500, "y":120, "conditions":["NO_ITEM:Armor"]},
+				{"action":"add_image", "image":"fighter_armor", "x":500, "y":120, "conditions":["ITEM:Armor"]},
+				{"action":"add_item", "item":"Flower", "image":"flower"},
 				{"action":"set_text", "text": "The mage picked up the flower and put it into a small box in her pocket."},
 				{"action":"set_condition", "condition": "3A"}
 			 ]
@@ -346,6 +466,13 @@
 			{"tag":"Leave the flower where it is.",
 			 "effects":
 			 [
+			 	{"action":"reset_images"},
+				{"action":"add_image", "image":"priest", "x":300, "y":120},
+				{"action":"add_image", "image":"mage", "x":450, "y":120},
+				{"action":"add_image", "image":"rogue", "x":150, "y":120},
+				{"action":"add_image", "image":"fighter", "x":600, "y":120, "conditions":["NO_ITEM:Armor"]},
+				{"action":"add_image", "image":"fighter_armor", "x":600, "y":120, "conditions":["ITEM:Armor"]},
+				{"action":"add_image", "image":"mob_flower", "x":50, "y":250},
 				{"action":"set_text", "text": "The mage decided to leave the flower where it was, hoping the next passersby would make the same decision."},
 				{"action":"set_condition", "condition": "3B"}
 			 ]
@@ -357,7 +484,10 @@
 		]
 	},
 	"MountainHouse": {
-		"situation": {"text": "When the four travellers finally left the plains behind, they started to climb up the mountain path of Astagor. In the afternoon, they came by a small house on the wayside.\nAn elderly man was sitting in the front garden. When he spotted the strangers, he shouted: \"If you are going to rob me, you have bad luck. The mountain goblins already took most of what I have.\" After the heroes had calmed the man down, he invited them in. He explained that goblins kept robbing him and that he was now afraid to starve during winter.\n\"If only I had an armour like yours\", he said and pointed at the swordswoman, \"Then I could defend my property. It would scare those rats off from a mile away. Your armour might even be my size...\"", "background": "house"},
+		"situation": {"text": "When the four travellers finally left the plains behind, they started to climb up the mountain path of Astagor. In the afternoon, they came by a small house on the wayside.\nAn elderly man was sitting in the front garden. When he spotted the strangers, he shouted: \"If you are going to rob me, you have bad luck. The mountain goblins already took most of what I have.\" After the heroes had calmed the man down, he invited them in. He explained that goblins kept robbing him and that he was now afraid to starve during winter.\n\"If only I had an armour like yours\", he said and pointed at the swordswoman, \"Then I could defend my property. It would scare those rats off from a mile away. Your armour might even be my size...\"",
+						"background": "house",
+						"reset_images":true
+					},
 		"choice":
 		[
 			{"tag":"Give the old man the armour.",
@@ -440,7 +570,7 @@
 			 "effects":
 			 [
 				{"action":"add_int", "name":"battle points", "value":2},
-				{"action":"add_item", "item":"Grimoire", "item_image":"book"},
+				{"action":"add_item", "item":"Grimoire", "image":"book"},
 				{"action":"set_text", "text": "Forbidden spells are probably forbidden because they are powerful, the group thought. Power was exactly what they needed for castle Freyn. They decided to keep the book and to stay in the the crypt for the night. The next morning, the four heroes climbed back out through the hole to continue their journey."},
 				{"action":"set_condition", "condition": "5.1B"}
 			 ]
@@ -496,7 +626,7 @@
 			 "effects":
 			 [
 				{"action":"add_int", "name":"battle points", "value":1},
-				{"action":"add_item", "item":"horses", "item_image":"horse"},
+				{"action":"add_item", "item":"horses", "image":"horse"},
 				{"action":"set_text", "text": "The four heroes carried out the manoeuvre proposed by the rogue and succeeded in catching two of the four horses, who had held their heads low to drink, unaware of the approaching humans. The mage and the priestess used their magic to calm the animals down and eventually got up on their backs. The rogue and the swordswoman joined them, and together they rode forward to castle Freyn."},
 				{"action":"set_condition", "condition": "6A"}
 			 ]
