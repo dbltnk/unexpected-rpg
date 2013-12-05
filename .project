@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>JInput</name>
+			<type>2</type>
+			<location>F:/Java/JInput/dist</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -1,4 +1,7 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -365,6 +368,18 @@ public class SceneLoader {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		// add gamepad support and the corresponding listener
+		ControllerSupport cs = new ControllerSupport();
+		cs.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gamepadKeyPressed(e);
+			}
+        });
+		cs.start();
+		
+		// create the view
 		view = new View();
 	}
 	
@@ -380,10 +395,19 @@ public class SceneLoader {
 		return input;
 	}*/
 	
-	public static void keyPressed(KeyEvent e)
+	public synchronized static void keyPressed(KeyEvent e)
 	{
 		pressedKey = e.getKeyChar();
 		isKeyPressed = true;
+	}
+	
+	public synchronized static void gamepadKeyPressed(ActionEvent e) {
+		String command = e.getActionCommand();
+		if (command.equals("a") || (command.equals("b")) || (command.equals("x")) || (command.equals("y"))) {
+			pressedKey = command.toCharArray()[0];
+			System.out.println("CHAR:" + command.toCharArray()[0]);
+			isKeyPressed = true;
+		}
 	}
 	
 	private char getKeyboardInput()
