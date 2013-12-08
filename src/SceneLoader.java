@@ -342,12 +342,12 @@ public class SceneLoader {
 				view.clearItems();
 				view.setGold(""+Party.getInt("gold"));
 				view.setBattlepoints(""+Party.getInt("battle points"));
+				break;
 			}
 			default:
 				System.out.println("Debug: effect " + json.getString("action") + " unknown.");	
 			}
 		}
-		
 		return true;
 	}
 	
