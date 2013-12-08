@@ -83,6 +83,12 @@ public class View extends JFrame {
 		this.drawPane.removeItem(imageName);
 	}
 	
+	/** removes all items from the inventory */
+	public void clearItems()
+	{
+		this.drawPane.clearItems();
+	}
+	
 	/** add an image to the image map and assign it to a given label */
 	public void addImage(String filename, String label) {
 		this.drawPane.addImage(filename, label);

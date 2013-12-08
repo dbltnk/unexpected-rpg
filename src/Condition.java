@@ -72,4 +72,9 @@ public class Condition {
 		}
 		System.out.println();
 	}
+	
+	static void clear()
+	{
+		conditionsSet.clear();
+	}
 }
