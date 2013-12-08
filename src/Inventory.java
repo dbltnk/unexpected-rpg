@@ -27,4 +27,9 @@ public class Inventory
 	{
 		return items.contains(name);
 	}
+	
+	public static void clear()
+	{
+		items.clear();
+	}
 }

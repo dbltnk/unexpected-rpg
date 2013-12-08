@@ -522,7 +522,7 @@
 			 "effects":
 			 [
 				{"action":"add_int", "name":"battle points", "value":-1},
-				{"action":"remove_item", "item":"Armor", "image":"Armor"},
+				{"action":"remove_item", "item":"Armor", "image":"armor"},
 				{"action":"add_image", "image":"fighter", "x":340, "y":160, "conditions":["NO_ITEM:Armor"]},
 				{"action":"add_image", "image":"oldman_armor", "x":200, "y":160},
 				{"action":"set_text", "text": "The swordswoman sighed and gave the old man her armour. She knew how to defend herself even without it, and she just could not bear the thought of the old man starving in his own home."},
@@ -1248,7 +1248,8 @@
 		},
 		"effects":
 		[
-			{"action":"next_scene", "scene":"Intro1"}
+			{"action":"next_scene", "scene":"Intro1"},
+			{"action":"reset_all"}
 		]
 	},
 	"GameOverInJail": {
@@ -1258,7 +1259,8 @@
 		},
 		"effects":
 		[
-			{"action":"next_scene", "scene":"Intro1"}
+			{"action":"next_scene", "scene":"Intro1"},
+			{"action":"reset_all"}
 		]
 	},
 	"Congratulations": {
@@ -1268,7 +1270,8 @@
 		},
 		"effects":
 		[
-			{"action":"next_scene", "scene":"Intro1"}
+			{"action":"next_scene", "scene":"Intro1"},
+			{"action":"reset_all"}
 		]
 	},
 	"CrushedByMonster": {
@@ -1278,7 +1281,8 @@
 		},
 		"effects":
 		[
-			{"action":"next_scene", "scene":"Intro1"}
+			{"action":"next_scene", "scene":"Intro1"},
+			{"action":"reset_all"}
 		]
 	},
 	"FallenFromWall": {
@@ -1288,7 +1292,8 @@
 		},
 		"effects":
 		[
-			{"action":"next_scene", "scene":"Intro1"}
+			{"action":"next_scene", "scene":"Intro1"},
+			{"action":"reset_all"}
 		]
 	}
 }

@@ -333,6 +333,16 @@ public class SceneLoader {
 				view.resetImagePositionings();
 				break;
 			}
+			case Effect.ACTION_RESET_ALL:
+			{
+				Party.clear();
+				Inventory.clear();
+				Condition.clear();
+				view.resetImagePositionings();
+				view.clearItems();
+				view.setGold(""+Party.getInt("gold"));
+				view.setBattlepoints(""+Party.getInt("battle points"));
+			}
 			default:
 				System.out.println("Debug: effect " + json.getString("action") + " unknown.");	
 			}

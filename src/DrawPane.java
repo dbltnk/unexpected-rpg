@@ -287,6 +287,13 @@ public class DrawPane extends JPanel {
 		}
 	}
 	
+	/** removes all items from the inventory */
+	public void clearItems()
+	{
+		itemList.clear();
+		updateUI();
+	}
+	
 	/** adds an image positioning to the list */
 	public void addImagePositioning(String imageName, int valX, int valY) {
 		Image img = imageMap.get(imageName);

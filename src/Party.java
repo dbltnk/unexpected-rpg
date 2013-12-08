@@ -4,9 +4,16 @@ import org.json.JSONObject;
 
 
 public class Party {
-
-	private static HashMap<String,Integer> ints = new HashMap<String,Integer>();
 	
+	private static HashMap<String,Integer> ints = new HashMap<String,Integer>();
+	private static HashMap<String,String> strings = new HashMap<String,String>();
+	
+	public static void clear()
+	{
+		ints.clear();
+		strings.clear();
+	}
+
 	public static void setInt(String name, int value)
 	{
 		ints.put(name, value);
@@ -35,8 +42,6 @@ public class Party {
 			return 0;
 		}
 	}
-	
-private static HashMap<String,String> strings = new HashMap<String,String>();
 	
 	public static void setString(String name, String value)
 	{
