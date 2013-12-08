@@ -379,6 +379,7 @@
 				{"action":"add_image", "image":"rogue", "x":240, "y":180},
 				{"action":"add_image", "image":"fighter", "x":460, "y":180, "conditions":["NO_ITEM:Armor"]},
 				{"action":"add_image", "image":"fighter_armor", "x":460, "y":180, "conditions":["ITEM:Armor"]},
+				{"action":"add_item", "item":"head", "image":"bag"},
 				{"action":"set_text", "text": "The four fighters left the city to look for the bandits. They investigated the site of the last assault and found a trace that led them into the mountains. In the evening, they found the bandits sitting around their campfire. They waited for the right moment, then they attacked silently. The fight was over quickly, and on the next day, the four heroes presented the bandit leader's head to their employer."},
 				{"action":"set_background", "image":"town"},
 				{"action":"reset_images"},
@@ -390,6 +391,7 @@
 				{"action":"add_image", "image":"fighter_armor", "x":460, "y":180, "conditions":["ITEM:Armor"]},
 				{"action":"add_int", "name":"battle points", "value":2},
 				{"action":"add_int", "name":"gold", "value":300},
+				{"action":"remove_item", "item":"head", "image":"bag"},
 				{"action":"set_text", "text": "The wealthy man was delighted to see his problem was solved and rewarded the heroes generously."},
 				{"action":"set_condition", "condition": "2A"}
 			 ]
