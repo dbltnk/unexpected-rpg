@@ -30,6 +30,8 @@ public class SceneLoader {
 	
 	private static boolean exitMenu = false;
 	
+	private static boolean fullscreenSwitch = false;
+	
 	public void setNextScene(String nextScene)
 	{
 		this.nextScene = nextScene;
@@ -444,13 +446,15 @@ public class SceneLoader {
 					isKeyPressed = false;
 				}
 			}
-			else
+			else if (isKeyPressed)
 			{
 				if(pressedKey == KeyEvent.VK_ESCAPE)
 				{
 					exitMenu = true;
 					view.setEscapeDialog(true);
 					isKeyPressed = false;
+				} else if (pressedKey == KeyEvent.VK_ENTER) {
+					view.toggleFullscreen();
 				}
 			}
 		}

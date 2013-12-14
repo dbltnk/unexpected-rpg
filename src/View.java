@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.font.TextAttribute;
@@ -29,6 +30,12 @@ public class View extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private DrawPane drawPane;
+	
+	private boolean fullscreenSwitch = false;
+	
+	private Dimension lastWindowSize;
+	
+	private Point lastWindowLocation;
 	
 	public View() {
 		buildGUI();
@@ -111,16 +118,48 @@ public class View extends JFrame {
 	
 	/** go to fullscreen mode */
 	public void activateFullscreen() {
-		this.dispose();
-		this.setUndecorated(true);  
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-		this.setVisible(true);
+		if (!fullscreenSwitch && this.getExtendedState() == JFrame.NORMAL) {
+			this.fullscreenSwitch = true;
+			this.lastWindowSize = this.getSize();
+			this.lastWindowLocation = this.getLocation();
+			this.dispose();
+			this.setResizable(false);
+			this.setUndecorated(true);  
+			this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+			this.setVisible(true);
+			
+			this.fullscreenSwitch = false;
+		}
 	}
 	
 	/** return from fullscreen mode */
 	public void deactivateFullscreen() {
-		this.setUndecorated(false);  
-		this.setExtendedState(JFrame.NORMAL); 
+		if (!fullscreenSwitch && this.getExtendedState() != JFrame.NORMAL) {
+			this.fullscreenSwitch = true;
+			this.dispose();
+			this.setResizable(false);
+			this.setUndecorated(false);  
+			this.setExtendedState(JFrame.NORMAL); 
+			if (this.lastWindowSize != null) {
+				this.setSize(lastWindowSize);
+				if (this.lastWindowLocation != null) {
+					this.setLocation(lastWindowLocation);
+				}
+			}
+			this.setVisible(true);
+			this.fullscreenSwitch = false;
+		}
+	}
+	
+	/** toggle the fullscreen mode */
+	public void toggleFullscreen() {
+		if (!fullscreenSwitch) {
+			if (this.getExtendedState() == JFrame.NORMAL) {
+				activateFullscreen();
+			} else {
+				deactivateFullscreen();
+			}
+		}
 	}
 	
 	/** builds the overall GUI */
