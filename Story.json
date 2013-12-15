@@ -51,7 +51,10 @@
 		]
 	},
 	"Intro1": {
-		"situation": {"text": "A long time ago, there was a mighty warrior by the name of Garoth who had fought many battles to protect his kingdom and his people. His enemies froze upon the sight of his...", "background": "black"},
+		"situation": {"text": "A long time ago, there was a mighty warrior by the name of Garoth who had fought many battles to protect his kingdom and his people. His enemies froze upon the sight of his...",
+						"background": "black",
+						"music":"./music/peaceful.wav"
+						},
 		"choice":
 		[
 			{"tag":"... blue eyes...",
@@ -256,7 +259,9 @@
 	},
 	"Abduction": {
 		"situation": {"text": "Our story begins years after this victorious battle, which had finally brought  peace upon our land. It was a dark, yet warm summer night and the great hero was resting in his home. When he suddenly woke up to a noise in his bedroom, he looked up to see a dark figure standing at the foot of his bed. The next morning, he had disappeared.",
-						"background": "abduct"},
+						"background": "abduct",
+						"stop_music": true
+						},
 		"effects":
 		[
 			{"action":"next_scene", "scene":"Tavern"},
@@ -267,6 +272,8 @@
 	"Tavern": {
 		"situation": {"text": "A few days later, in a tavern just outside the city of Tylia, four old friends of the now missing hero learned about his abduction. Without hesitation, they decided to set out for his rescue. They all were experienced fighters themselves, each in their own fashion: A priestess, a mage, a rogue and a swordswoman. According to rumors, their friend had been brought to the Freyn castle in the very east of the land - for what reason, nobody knew.",
 						"background": "taverna",
+						"music":"./music/town.wav",
+						"sound":"./sound/talk_inside.wav",
 						"images":
 						[
 							{"image":"priest", "x":100, "y":150},
@@ -283,6 +290,9 @@
 	"BlueBird1": {
 		"situation": {"text": "When the party stepped outside the tavern, they spotted a giant blue bird in a nearby tree. Never before had they seen such an animal, but it looked rather dangerous, so they braced themselves for battle.",
 						"background": "plain",
+						"stop_music":true,
+						"stop_sound":true,
+						"music":"./music/battle.wav",
 						"reset_images":true,
 						"images":
 						[
@@ -353,6 +363,9 @@
 	"City": {
 		"situation": {"text": "The four travelers entered the city of Tylia, which they had to cross on their way to castle Freyn. When they reached the market square, a wealthy-looking man approached them at a hurried pace. \"Excuse me\", he said, \"The four of you look like you could help me out.\nMy wheat transports keep getting attacked by some leprous outcasts who live somewhere in the mountains outside the city. If you bring me their leader's head, you will be greatly rewarded.\"",
 						"background": "town",
+						"stop_music":true,
+						"music":"./music/town.wav",
+						"sound":"./sound/talk_outside.wav",
 						"reset_images":true,
 						"images":
 						[
@@ -420,6 +433,10 @@
 	"Flower1": {
 		"situation": {"text": "After a night of sleep, the heroes left the city and entered the plains of Zoronia. Nothing but green grass would await them here for at least a hundred miles. Two uneventful days of walking passed by, when the mage suddenly told the others to stop.",
 						"background": "plain",
+						"stop_music":true,
+						"stop_sound":true,
+						"music":"./music/peaceful.wav",
+						"sound":"./sound/birds.mp3",
 						"reset_images":true,
 						"images":
 						[
@@ -489,6 +506,7 @@
 	"MountainHouse1": {
 		"situation": {"text": "When the four travellers finally left the plains behind, they started to climb up the mountain path of Astagor. In the afternoon, they came by a small house on the wayside.\nAn elderly man was sitting in the front garden. When he spotted the strangers, he shouted: \"If you are going to rob me, you have bad luck. The mountain goblins already took most of what I have.\" After the heroes had calmed the man down, he invited them in. He explained that goblins kept robbing him and that he was now afraid to starve during winter.",
 						"background": "mountain",
+						"stop_sound":true,
 						"reset_images":true,
 						"images":
 						[
@@ -548,6 +566,8 @@
 	"Storm1": {
 		"situation": {"text": "Shortly after the four travellers had left the old man's cabin, a storm started to brew over they heads. Before the night fell, they sought shelter in a cave they had discovered just below the summit of mount Astagor.\nThe mage led the way with a little flame floating over the palm of her right hand. As they pushed deeper into the darkness, they started to notice sparkling objects in the glow of the fire. The mage lit up the entire chamber.",
 						"background": "cave",
+						"stop_music":true,
+						"music":"./music/mystical.wav",
 						"reset_images":true,
 						"images":
 						[
@@ -745,7 +765,10 @@
 		]
 	},
 	"MountainPass": {
-		"situation": {"text":"The strange creatures jumped around the human intruders, waving around with their weapons. \"I count eight of them\", the rogue whispered. \"I think we can handle them\", the swordswoman replied.", "background": "mountain"},
+		"situation": {"text":"The strange creatures jumped around the human intruders, waving around with their weapons. \"I count eight of them\", the rogue whispered. \"I think we can handle them\", the swordswoman replied.",
+						"stop_music":true,
+						"music":"./music/battle.wav",
+						"background": "mountain"},
 		"choice":
 		[
 			{"tag":"Attack them.",
@@ -820,6 +843,9 @@
 	"Hills": {
 		"situation": {"text": "After more than a week of travelling, the group finally came close to castle Freyn. They had left behind the mountains and now walked across endless plains again. One day at noon, when they reached a hilltop, they could see castle Freyn's towers at the horizon. Suddenly, the rogue whispered \"Quiet\" and pointed towards the valley in front of them, where four wild horses with blue manes were drinking from a small river.\n\"They cannot get anywhere if we spread out a little\", the rogue said, \"With horses, we could travel much faster. What do you think?\"",
 						"background": "plain",
+						"stop_music":true,
+						"music":"./music/peaceful.wav",
+						"sound":"./sound/birds.mp3",
 						"reset_images":true,
 						"images":
 						[
@@ -874,6 +900,9 @@
 	"Test1": {
 		"situation": {"text": "As the heroes approached the castle, they noticed that a huge wall protected it from intruders. However, before they could reach it, they made out an approaching dust cloud a few hills further north. Within a few moments, they were surrounded by about twenty riders wearing the symbol of the king. \"We are the King's Guard\", one of them, apparently an officer, shouted while the horses came to a stop. \"This is a strange spot of land, and we check on everyone who passes through.\nThe landscape east from here is highly dangerous and we discourage you to go there. However, it is suspicious that anybody even comes out this far. Please do not be angry, but we have to search you and ask you about your intentions.\"",
 						"background": "tower",
+						"stop_music":true,
+						"stop_sound":true,
+						"music":"./music/battle.wav",
 						"reset_images": true,
 						"images":
 						[
@@ -976,6 +1005,8 @@
 	"Test3": {
 		"situation": {"text": "The four heroes had barely gotten down from the wall, when a huge monster appeared, blocking their path to the castle. \"I do not like you\", it snorted, \"my eyes see everything.\"",
 						"background": "castle",
+						"stop_music":true,
+						"music":"./music/critical.wav",
 						"reset_images":true,
 						"images":
 						[
@@ -1000,7 +1031,10 @@
 		]
 	},
 	"LastTest": {
-		"situation": {"text": "As the heroes approached the castle, they noticed, even though they were still far away, that a gigantic wall protected it from intruders. However, before they got close to it, they made out a dust cloud a few hills further north that approached them quickly. Within a few moments, they were surrounded by about twenty riders wearing the symbol of castle Freyn.\nThey prepared to defend themselves, but one of the riders held up his hand and got off his horse. \"We know who you are\", he said\", \"We already heard about you and what you have done to come here. You want to save your friend? We had good reason to imprison him, but I will give you a chance.\nYou all have pure hearts, but I want to know how close of a friend he is to you, so I can be sure he is as good as you are.\" So tell me first, what is his name?"},
+		"situation": {"text": "As the heroes approached the castle, they noticed, even though they were still far away, that a gigantic wall protected it from intruders. However, before they got close to it, they made out a dust cloud a few hills further north that approached them quickly. Within a few moments, they were surrounded by about twenty riders wearing the symbol of castle Freyn.\nThey prepared to defend themselves, but one of the riders held up his hand and got off his horse. \"We know who you are\", he said\", \"We already heard about you and what you have done to come here. You want to save your friend? We had good reason to imprison him, but I will give you a chance.\nYou all have pure hearts, but I want to know how close of a friend he is to you, so I can be sure he is as good as you are.\" So tell me first, what is his name?",
+						"stop_music":true,
+						"music":"./music/peaceful.wav",
+						},
 		"choice":
 		[
 			{"tag":"... Fereg."
