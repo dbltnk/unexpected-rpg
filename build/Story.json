@@ -7,9 +7,14 @@
 			{"action":"import_image", "filename":"./images/bg_black_950.png", "label":"black"},
 			{"action":"import_image", "filename":"./images/bg_castle_128_blur_950.png", "label":"castle"},
 			{"action":"import_image", "filename":"./images/bg_cave_950.png", "label":"cave"},
+			{"action":"import_image", "filename":"./images/bg_continue_castle_trix.png", "label":"continue_castle"},
 			{"action":"import_image", "filename":"./images/bg_crypta_950.png", "label":"crypta"},
+			{"action":"import_image", "filename":"./images/bg_done_castle_trix.png", "label":"done_castle"},
+			{"action":"import_image", "filename":"./images/bg_gameover_castle_trix.png", "label":"gameover_castle"},
+			{"action":"import_image", "filename":"./images/bg_gameover_prison_trix.png", "label":"gameover_prison"},
 			{"action":"import_image", "filename":"./images/bg_house_128_blur_950.png", "label":"house"},
 			{"action":"import_image", "filename":"./images/bg_mountain_950.png", "label":"mountain"},
+			{"action":"import_image", "filename":"./images/bg_mountain_storm_hole_950x.png", "label":"mountain_storm"},
 			{"action":"import_image", "filename":"./images/bg_plain_128_blur_950.png", "label":"plain"},
 			{"action":"import_image", "filename":"./images/bg_taverna_950.png", "label":"taverna"},
 			{"action":"import_image", "filename":"./images/bg_tower_128_blur_950.png", "label":"tower"},
@@ -43,15 +48,20 @@
 			{"action":"import_image", "filename":"./images/mob_rider_cut.png", "label":"rider"},
 			{"action":"import_image", "filename":"./images/mobs_book.png", "label":"mob_book"},
 			{"action":"import_image", "filename":"./images/mobs_gold_trix.png", "label":"gold"},
+			{"action":"import_image", "filename":"./images/mobs_horses_trix.png", "label":"mobs_horses"},
 			{"action":"import_image", "filename":"./images/ui_bag_trix_scaled.png", "label":"ui_bag"},
 			{"action":"import_image", "filename":"./images/ui_gold_compo.png", "label":"ui_gold"},
 			{"action":"import_image", "filename":"./images/ui_papyrus_trix.png", "label":"papyrus"},
 			{"action":"import_image", "filename":"./images/ui_xp_compo.png", "label":"xp_compo"},
+			{"action":"import_image", "filename":"./images/wall_blur_950.png", "label":"wall"},
 			{"action":"next_scene", "scene":"Intro1"}
 		]
 	},
 	"Intro1": {
-		"situation": {"text": "A long time ago, there was a mighty warrior by the name of Garoth who had fought many battles to protect his kingdom and his people. His enemies froze upon the sight of his...", "background": "black"},
+		"situation": {"text": "A long time ago, there was a mighty warrior by the name of Garoth who had fought many battles to protect his kingdom and his people. His enemies froze upon the sight of his...",
+						"background": "black",
+						"music":"./music/peaceful.wav"
+						},
 		"choice":
 		[
 			{"tag":"... blue eyes...",
@@ -256,7 +266,9 @@
 	},
 	"Abduction": {
 		"situation": {"text": "Our story begins years after this victorious battle, which had finally brought  peace upon our land. It was a dark, yet warm summer night and the great hero was resting in his home. When he suddenly woke up to a noise in his bedroom, he looked up to see a dark figure standing at the foot of his bed. The next morning, he had disappeared.",
-						"background": "abduct"},
+						"background": "abduct",
+						"stop_music": true
+						},
 		"effects":
 		[
 			{"action":"next_scene", "scene":"Tavern"},
@@ -267,6 +279,8 @@
 	"Tavern": {
 		"situation": {"text": "A few days later, in a tavern just outside the city of Tylia, four old friends of the now missing hero learned about his abduction. Without hesitation, they decided to set out for his rescue. They all were experienced fighters themselves, each in their own fashion: A priestess, a mage, a rogue and a swordswoman. According to rumors, their friend had been brought to the Freyn castle in the very east of the land - for what reason, nobody knew.",
 						"background": "taverna",
+						"music":"./music/town.wav",
+						"sound":"./sound/talk_inside.wav",
 						"images":
 						[
 							{"image":"priest", "x":100, "y":150},
@@ -283,6 +297,9 @@
 	"BlueBird1": {
 		"situation": {"text": "When the party stepped outside the tavern, they spotted a giant blue bird in a nearby tree. Never before had they seen such an animal, but it looked rather dangerous, so they braced themselves for battle.",
 						"background": "plain",
+						"stop_music":true,
+						"stop_sound":true,
+						"music":"./music/battle.wav",
 						"reset_images":true,
 						"images":
 						[
@@ -299,15 +316,7 @@
 		]
 	},
 	"BlueBird2": {
-		"situation": {"text": "The mage prepared a fire spell to burn the beast's feathers and the rogue aimed at its eye with his slingshot. When the bird noticed the four strangers, it emitted a bloodcurling cry and beat its wings.",
-						"background": "plain",
-						"reset_images":true,
-						"images":
-						[
-							{"image":"mage", "x":200, "y":150},
-							{"image":"rogue", "x":400, "y":150},
-							{"image":"bird_fly", "x":300, "y":0}
-						]},
+		"situation": {"text": "The mage prepared a fire spell to burn the beast's feathers and the rogue aimed at its eye with his slingshot. When the bird noticed the four strangers, it emitted a bloodcurling cry and beat its wings."},
 		"choice":
 		[
 			{"tag":"Attack with the slingshot!",
@@ -315,8 +324,8 @@
 			 [
 				{"action":"add_int", "name":"battle points", "value":1},
 				{"action":"reset_images"},
-				{"action":"add_image", "image":"bird_bleed", "x":300, "y":0},
-				{"action":"add_image", "image":"rogue", "x":400, "y":150},
+				{"action":"add_image", "image":"bird_bleed", "x":550, "y":-20},
+				{"action":"add_image", "image":"rogue", "x":250, "y":100},
 				{"action":"set_text", "text": "The beast's head was knocked back as the rogue attacked with matchless precision. It quickly took off and disappeared into the skies."},
 				{"action":"set_condition", "condition": "1A"}
 			 ]
@@ -326,8 +335,8 @@
 			 [
 				{"action":"add_int", "name":"battle points", "value":2},
 				{"action":"reset_images"},
-				{"action":"add_image", "image":"bird_smoke", "x":300, "y":0},
-				{"action":"add_image", "image":"mage", "x":200, "y":150},
+				{"action":"add_image", "image":"bird_smoke", "x":550, "y":-20},
+				{"action":"add_image", "image":"mage", "x":100, "y":200},
 				{"action":"set_text", "text": "The fireball set the tree on fire and seared the beast's feathers. It quickly took off and disappeared into the skies, leaving behind a trail of smoke."},
 				{"action":"set_condition", "condition": "1B"}
 			 ]
@@ -337,9 +346,12 @@
 			 [
 				{"action":"add_int", "name":"battle points", "value":-1},
 				{"action":"reset_images"},
+				{"action":"add_image", "image":"priest", "x":100, "y":100},
+				{"action":"add_image", "image":"mage", "x":100, "y":200},
+				{"action":"add_image", "image":"rogue", "x":250, "y":100},
+				{"action":"add_image", "image":"fighter", "x":250, "y":200, "conditions":["NO_ITEM:Armor"]},
+				{"action":"add_image", "image":"fighter_armor", "x":250, "y":200, "conditions":["ITEM:Armor"]},
 				{"action":"add_image", "image":"bird_fly", "x":550, "y":-20},
-				{"action":"add_image", "image":"mage", "x":200, "y":150},
-				{"action":"add_image", "image":"rogue", "x":400, "y":150},
 				{"action":"set_text", "text": "The beast soared into the air, emitting another cry. In the next moment, it took off eastwards, rose higher and higher and finally disappeared in the clouds."},
 				{"action":"set_condition", "condition": "1C"}
 			 ]
@@ -353,6 +365,9 @@
 	"City": {
 		"situation": {"text": "The four travelers entered the city of Tylia, which they had to cross on their way to castle Freyn. When they reached the market square, a wealthy-looking man approached them at a hurried pace. \"Excuse me\", he said, \"The four of you look like you could help me out.\nMy wheat transports keep getting attacked by some leprous outcasts who live somewhere in the mountains outside the city. If you bring me their leader's head, you will be greatly rewarded.\"",
 						"background": "town",
+						"stop_music":true,
+						"music":"./music/town.wav",
+						"sound":"./sound/talk_outside.wav",
 						"reset_images":true,
 						"images":
 						[
@@ -420,6 +435,10 @@
 	"Flower1": {
 		"situation": {"text": "After a night of sleep, the heroes left the city and entered the plains of Zoronia. Nothing but green grass would await them here for at least a hundred miles. Two uneventful days of walking passed by, when the mage suddenly told the others to stop.",
 						"background": "plain",
+						"stop_music":true,
+						"stop_sound":true,
+						"music":"./music/peaceful.wav",
+						"sound":"./sound/birds.mp3",
 						"reset_images":true,
 						"images":
 						[
@@ -489,6 +508,7 @@
 	"MountainHouse1": {
 		"situation": {"text": "When the four travellers finally left the plains behind, they started to climb up the mountain path of Astagor. In the afternoon, they came by a small house on the wayside.\nAn elderly man was sitting in the front garden. When he spotted the strangers, he shouted: \"If you are going to rob me, you have bad luck. The mountain goblins already took most of what I have.\" After the heroes had calmed the man down, he invited them in. He explained that goblins kept robbing him and that he was now afraid to starve during winter.",
 						"background": "mountain",
+						"stop_sound":true,
 						"reset_images":true,
 						"images":
 						[
@@ -548,6 +568,8 @@
 	"Storm1": {
 		"situation": {"text": "Shortly after the four travellers had left the old man's cabin, a storm started to brew over they heads. Before the night fell, they sought shelter in a cave they had discovered just below the summit of mount Astagor.\nThe mage led the way with a little flame floating over the palm of her right hand. As they pushed deeper into the darkness, they started to notice sparkling objects in the glow of the fire. The mage lit up the entire chamber.",
 						"background": "cave",
+						"stop_music":true,
+						"music":"./music/mystical.wav",
 						"reset_images":true,
 						"images":
 						[
@@ -583,13 +605,12 @@
 			 "effects":
 			 [
 				{"action":"add_int", "name":"gold", "value":1000},
-				{"action":"set_background", "image":"black"},
+				{"action":"set_background", "image":"mountain_storm"},
 				{"action":"reset_images"},
-				{"action":"add_image", "image":"priest", "x":450, "y":240},
-				{"action":"add_image", "image":"mage", "x":150, "y":160},
-				{"action":"add_image", "image":"rogue", "x":300, "y":160},
-				{"action":"add_image", "image":"fighter", "x":600, "y":160, "conditions":["NO_ITEM:Armor"]},
-				{"action":"add_image", "image":"fighter_armor", "x":600, "y":160, "conditions":["ITEM:Armor"]},
+				{"action":"add_image", "image":"mage", "x":550, "y":160},
+				{"action":"add_image", "image":"rogue", "x":350, "y":110},
+				{"action":"add_image", "image":"fighter", "x":150, "y":160, "conditions":["NO_ITEM:Armor"]},
+				{"action":"add_image", "image":"fighter_armor", "x":150, "y":160, "conditions":["ITEM:Armor"]},
 				{"action":"set_text", "text": "The heroes filled up their pockets with gold and left the cave quickly, as they expected the owner of the treasure to be back soon. Outside, they were welcomed by heavy rain and wind. They quickly moved forward in search for another shelter, until the priestess suddenly disappeared between two rocks. The others followed her quickly and discovered she had fallen into a cave. Carefully, they descended to her rescue."},
 				{"action":"set_condition", "condition":"gold taken"},
 				{"action":"next_scene", "scene":"Crypt1"}
@@ -659,13 +680,12 @@
 			{"tag":"Don't touch the gold and leave now.",
 			 "effects":
 			 [
-				{"action":"set_background", "image":"black"},
+				{"action":"set_background", "image":"mountain_storm"},
 				{"action":"reset_images"},
-				{"action":"add_image", "image":"priest", "x":450, "y":240},
-				{"action":"add_image", "image":"mage", "x":150, "y":160},
+				{"action":"add_image", "image":"mage", "x":450, "y":160},
 				{"action":"add_image", "image":"rogue", "x":300, "y":160},
-				{"action":"add_image", "image":"fighter", "x":600, "y":160, "conditions":["NO_ITEM:Armor"]},
-				{"action":"add_image", "image":"fighter_armor", "x":600, "y":160, "conditions":["ITEM:Armor"]},
+				{"action":"add_image", "image":"fighter", "x":150, "y":160, "conditions":["NO_ITEM:Armor"]},
+				{"action":"add_image", "image":"fighter_armor", "x":150, "y":160, "conditions":["ITEM:Armor"]},
 				{"action":"set_text", "text": "Although the sight of such a huge amount of gold was tempting, the heroes decided it would be best to leave it alone. They left the cave quickly, as they expected the owner of the treasure to be back soon. Outside, they were welcomed by heavy rain and wind.\nThey quickly moved forward in search for another shelter, until the priestess suddenly disappeared between two rocks. The others followed her quickly and discovered she had fallen into a cave. Carefully, they descended to her rescue."},
 				{"action":"next_scene", "scene":"Crypt1"}
 			 ]
@@ -745,7 +765,10 @@
 		]
 	},
 	"MountainPass": {
-		"situation": {"text":"The strange creatures jumped around the human intruders, waving around with their weapons. \"I count eight of them\", the rogue whispered. \"I think we can handle them\", the swordswoman replied.", "background": "mountain"},
+		"situation": {"text":"The strange creatures jumped around the human intruders, waving around with their weapons. \"I count eight of them\", the rogue whispered. \"I think we can handle them\", the swordswoman replied.",
+						"stop_music":true,
+						"music":"./music/battle.wav",
+						"background": "mountain"},
 		"choice":
 		[
 			{"tag":"Attack them.",
@@ -820,14 +843,13 @@
 	"Hills": {
 		"situation": {"text": "After more than a week of travelling, the group finally came close to castle Freyn. They had left behind the mountains and now walked across endless plains again. One day at noon, when they reached a hilltop, they could see castle Freyn's towers at the horizon. Suddenly, the rogue whispered \"Quiet\" and pointed towards the valley in front of them, where four wild horses with blue manes were drinking from a small river.\n\"They cannot get anywhere if we spread out a little\", the rogue said, \"With horses, we could travel much faster. What do you think?\"",
 						"background": "plain",
+						"stop_music":true,
+						"music":"./music/peaceful.wav",
+						"sound":"./sound/birds.mp3",
 						"reset_images":true,
 						"images":
 						[
-							{"image":"mage", "x":0, "y":150},
-							{"image":"fighter", "x":100, "y":100, "conditions":["NO_ITEM:Armor"]},
-							{"image":"fighter_armor", "x":100, "y":100, "conditions":["ITEM:Armor"]},
-							{"image":"rogue", "x":250, "y":150},
-							{"image":"priest", "x":100, "y":200}
+							{"image":"mobs_horses", "x":150, "y":0}
 						]
 		},
 		"choice":
@@ -838,13 +860,12 @@
 				{"action":"add_int", "name":"battle points", "value":1},
 				{"action":"add_item", "item":"horses", "image":"horse"},
 				{"action":"reset_images"},
-				{"action":"add_image", "image":"mage", "x":350, "y":80},
+				{"action":"add_image", "image":"mage", "x":300, "y":80},
 				{"action":"add_image", "image":"fighter", "x":550, "y":150, "conditions":["NO_ITEM:Armor"]},
 				{"action":"add_image", "image":"fighter_armor", "x":550, "y":150, "conditions":["ITEM:Armor"]},
-				{"action":"add_image", "image":"rogue", "x":150, "y":150},
-				{"action":"add_image", "image":"horse", "x":330, "y":200},
-				{"action":"add_image", "image":"horse", "x":430, "y":200},
-				{"action":"add_image", "image":"priest", "x":350, "y":220},
+				{"action":"add_image", "image":"rogue", "x":50, "y":150},
+				{"action":"add_image", "image":"mobs_horses", "x":150, "y":0},
+				{"action":"add_image", "image":"priest", "x":300, "y":220},
 				{"action":"set_text", "text": "The four heroes carried out the manoeuvre proposed by the rogue and succeeded in catching two of the four horses, who had held their heads low to drink, unaware of the approaching humans. The mage and the priestess used their magic to calm the animals down and eventually got up on their backs. The rogue and the swordswoman joined them, and together they rode forward to castle Freyn."},
 				{"action":"set_condition", "condition": "6A"}
 			 ]
@@ -853,12 +874,6 @@
 			 "effects":
 			 [
 				{"action":"add_int", "name":"battle points", "value":-1},
-				{"action":"reset_images"},
-				{"action":"add_image", "image":"mage", "x":0, "y":100},
-				{"action":"add_image", "image":"fighter", "x":100, "y":50, "conditions":["NO_ITEM:Armor"]},
-				{"action":"add_image", "image":"fighter_armor", "x":100, "y":50, "conditions":["ITEM:Armor"]},
-				{"action":"add_image", "image":"rogue", "x":200, "y":100},
-				{"action":"add_image", "image":"priest", "x":100, "y":150},
 				{"action":"set_text", "text": "After watching the wild animals a little longer, the heroes decided they did not need to rid them of their freedom. The castle was no longer far away anyways, so the party moved on by foot."},
 				{"action":"set_condition", "condition": "6B"}
 			 ]
@@ -874,6 +889,9 @@
 	"Test1": {
 		"situation": {"text": "As the heroes approached the castle, they noticed that a huge wall protected it from intruders. However, before they could reach it, they made out an approaching dust cloud a few hills further north. Within a few moments, they were surrounded by about twenty riders wearing the symbol of the king. \"We are the King's Guard\", one of them, apparently an officer, shouted while the horses came to a stop. \"This is a strange spot of land, and we check on everyone who passes through.\nThe landscape east from here is highly dangerous and we discourage you to go there. However, it is suspicious that anybody even comes out this far. Please do not be angry, but we have to search you and ask you about your intentions.\"",
 						"background": "tower",
+						"stop_music":true,
+						"stop_sound":true,
+						"music":"./music/battle.wav",
 						"reset_images": true,
 						"images":
 						[
@@ -942,15 +960,15 @@
 	},
 	"Test2": {
 		"situation": {"text": "The wall the heroes had already seen from far away grew bigger with every step they took. When they arrived, they realised they would have to climb it in order to reach castle Freyn. The swordswoman went up first, followed by the rogue, the priestess and the mage.",
-						"background": "castle",
+						"background": "wall",
 						"reset_images":true,
 						"images":
 						[
 							{"image":"fighter", "x":200, "y":0, "conditions":["NO_ITEM:Armor"]},
 							{"image":"fighter_armor", "x":200, "y":0, "conditions":["ITEM:Armor"]},
-							{"image":"rogue", "x":300, "y":50},
-							{"image":"priest", "x":200, "y":100},
-							{"image":"mage", "x":300, "y":150}
+							{"image":"rogue", "x":300, "y":80},
+							{"image":"priest", "x":200, "y":160},
+							{"image":"mage", "x":300, "y":240}
 						]
 		},
 		"effects":
@@ -960,7 +978,11 @@
 			{"action":"set_condition", "condition": "Test2 failed", "conditions":["SET:1 failed"]},
 			{"action":"set_condition", "condition": "Test2 failed", "conditions":["SET:4B"]},
 			{"action":"set_condition", "condition": "Test2 failed", "conditions":["SET:gold taken"]},
-			{"action":"add_image", "image":"bird_fly", "x":20, "y":0, "conditions":["SET:1 failed"]}, 
+			{"action":"reset_images", "conditions":["SET:Test2 failed"]},
+			{"action":"add_image", "image":"rogue", "x":300, "y":240, "conditions":["SET:Test2 failed"]},
+			{"action":"add_image", "image":"fighter", "x":240, "y":140, "conditions":["NO_ITEM:Armor","SET:Test2 failed"]},
+			{"action":"add_image", "image":"fighter_armor", "x":240, "y":140, "conditions":["ITEM:Armor","SET:Test2 failed"]},
+			{"action":"add_image", "image":"bird_fly", "x":20, "y":0, "conditions":["SET:1 failed"]},
 			{"action":"set_text", "text": "Shortly before the heroes would start the descent, a giant shadow passed by them. They turned their heads up and realised in horror that the strange bird they had encountered outside the tavern had returned to take revenge on them. He swooped down on the swordswoman, who lost grip and started to fall, crashing on the heads of her teammates, and they all fell to certain death.", "conditions":["SET:1 failed", "UNSET:4B", "UNSET:gold taken"]},
 			{"action":"set_text", "text": "Shortly before the heroes would start the descent, a giant shadow passed by them. They turned their heads up and realised in horror that the strange bird they had encountered outside the tavern had returned to take revenge on them. He swooped down on the swordswoman, who tried to hold on, but her armour was too heavy. She lost grip and started to fall, crashing on the heads of her teammates, and they all fell to certain death.", "conditions":["SET:1 failed", "SET:4B", "UNSET:gold taken"]},
 			{"action":"set_text", "text": "The four heroes had climbed about half the wall, when the swordswoman slipped of the rock because the weight of her armour pulled her down. She lost balance and started to fall, crashing on the heads of her teammates, and they all fell to certain death.", "conditions":["UNSET:1 failed", "SET:4B", "UNSET:gold taken"]},
@@ -976,6 +998,8 @@
 	"Test3": {
 		"situation": {"text": "The four heroes had barely gotten down from the wall, when a huge monster appeared, blocking their path to the castle. \"I do not like you\", it snorted, \"my eyes see everything.\"",
 						"background": "castle",
+						"stop_music":true,
+						"music":"./music/critical.wav",
 						"reset_images":true,
 						"images":
 						[
@@ -1000,7 +1024,12 @@
 		]
 	},
 	"LastTest": {
-		"situation": {"text": "As the heroes approached the castle, they noticed, even though they were still far away, that a gigantic wall protected it from intruders. However, before they got close to it, they made out a dust cloud a few hills further north that approached them quickly. Within a few moments, they were surrounded by about twenty riders wearing the symbol of castle Freyn.\nThey prepared to defend themselves, but one of the riders held up his hand and got off his horse. \"We know who you are\", he said\", \"We already heard about you and what you have done to come here. You want to save your friend? We had good reason to imprison him, but I will give you a chance.\nYou all have pure hearts, but I want to know how close of a friend he is to you, so I can be sure he is as good as you are.\" So tell me first, what is his name?"},
+		"situation": {"text": "As the heroes approached the castle, they noticed, even though they were still far away, that a gigantic wall protected it from intruders. However, before they got close to it, they made out a dust cloud a few hills further north that approached them quickly. Within a few moments, they were surrounded by about twenty riders wearing the symbol of castle Freyn.\nThey prepared to defend themselves, but one of the riders held up his hand and got off his horse. \"We know who you are\", he said\", \"We already heard about you and what you have done to come here. You want to save your friend? We had good reason to imprison him, but I will give you a chance.\nYou all have pure hearts, but I want to know how close of a friend he is to you, so I can be sure he is as good as you are.\" So tell me first, what is his name?",
+						"background":"tower",
+						"stop_music":true,
+						"music":"./music/peaceful.wav",
+						"reset_images":true
+						},
 		"choice":
 		[
 			{"tag":"... Fereg."
@@ -1245,7 +1274,7 @@
 	},
 	"ToBeContinued": {
 		"situation": {"text": "You were not able to rescue your friend. Please press a key to start a new game and try again.",
-						"background": "tower",
+						"background": "continue_castle",
 						"reset_images":true
 		},
 		"effects":
@@ -1256,7 +1285,7 @@
 	},
 	"GameOverInJail": {
 		"situation": {"text": "Game over. Please press a key to start a new game.",
-						"background": "black",
+						"background": "gameover_prison",
 						"reset_images":true
 		},
 		"effects":
@@ -1267,7 +1296,7 @@
 	},
 	"Congratulations": {
 		"situation": {"text": "Congratulations. You were able to rescue your friend. Please press a key to start a new game.",
-						"background": "black",
+						"background": "done_castle",
 						"reset_images":true
 		},
 		"effects":
@@ -1278,7 +1307,7 @@
 	},
 	"CrushedByMonster": {
 	"situation": {"text": "Game over. Please press a key to start a new game.",
-					"background":"black",
+					"background":"gameover_castle",
 						"reset_images":true
 		},
 		"effects":
@@ -1289,7 +1318,7 @@
 	},
 	"FallenFromWall": {
 	"situation": {"text": "Game over. Please press a key to start a new game.",
-					"background":"black",
+					"background":"gameover_castle",
 						"reset_images":true
 		},
 		"effects":

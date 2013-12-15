@@ -135,6 +135,30 @@ public class SceneLoader {
 				view.addImagePositioning(label, x, y);
 			}
 		}
+		if(situation.has("stop_music"))
+		{
+			if(situation.getBoolean("stop_music"))
+			{
+				//ToDo: add code for stopping/fading music
+			}
+		}
+		if(situation.has("stop_sound"))
+		{
+			if(situation.getBoolean("stop_sound"))
+			{
+				//ToDo: add code for stopping/fading sound
+			}
+		}
+		if(situation.has("music"))
+		{
+			String musicFile = situation.getString("music");
+			//ToDo: add code for playing music file
+		}
+		if(situation.has("sound"))
+		{
+			String soundFile = situation.getString("music");
+			//ToDo: add code for playing sound file
+		}
 		
 		// create list of effects
 		List<Effect> effects = new ArrayList<Effect>();
