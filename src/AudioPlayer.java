@@ -20,6 +20,12 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public class AudioPlayer extends Thread {
 	
+	private String type;
+	
+	private Clip waveClip;
+	
+	private Player mp3Player;
+	
     public AudioPlayer(String valFilename) {
     	String extension = null;
     	int i = valFilename.lastIndexOf('.');
@@ -27,24 +33,28 @@ public class AudioPlayer extends Thread {
     	    extension = valFilename.substring(i+1);
     	}
     	
-    	if (extension == null) {
+    	File file = new File(valFilename);
+    	if(!file.exists()) {
+    		System.out.println("The audio file does not exist: " + valFilename);
+    	} else if (extension == null) {
     		System.out.println("Unknown file type: " + valFilename);
     	} else if (extension.equals("wav") || extension.equals("wave")) {
-    		playWave(valFilename);
+    		playWave(file);
     	} else if (extension.equals("mp3")) {
-    		playMP3(valFilename);
+    		playMP3(file);
     	} else {
     		System.out.println("Unknown file type: " + valFilename);
     	}
     }
         
-    public void playWave(String filename) {
+    public void playWave(File file) {
+    	this.type = "wav";
     	AudioInputStream audioIn;
 		try {
-			audioIn = AudioSystem.getAudioInputStream(new File(filename));
-			Clip clip = AudioSystem.getClip();
-	    	clip.open(audioIn);
-	    	clip.start();
+			audioIn = AudioSystem.getAudioInputStream(file);	
+			this.waveClip = AudioSystem.getClip();
+			this.waveClip.open(audioIn);
+			this.waveClip.start();
 		} catch (UnsupportedAudioFileException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -57,7 +67,8 @@ public class AudioPlayer extends Thread {
 		}
     }
     
-    public void playMP3(String filename) {
+    public void playMP3(File file) {
+    	this.type = "mp3";
 		Format input1 = new AudioFormat(AudioFormat.MPEGLAYER3);
 		Format input2 = new AudioFormat(AudioFormat.MPEG);
 		Format output = new AudioFormat(AudioFormat.LINEAR);
@@ -68,17 +79,26 @@ public class AudioPlayer extends Thread {
 			PlugInManager.CODEC
 		);
 		try{
-			Player player = Manager.createPlayer(new MediaLocator(new File(filename).toURI().toURL()));
-			player.start();
+			this.mp3Player = Manager.createPlayer(new MediaLocator(file.toURI().toURL()));
+			this.mp3Player.start();
 		}
 		catch(Exception ex){
 			ex.printStackTrace();
 		}
 	}
     
+    public void stopAudio() {
+    	if (this.type.equals("mp3") && this.mp3Player != null) {
+    		this.mp3Player.stop();
+    	} else if (this.waveClip != null) {
+    		this.waveClip.stop();
+    	}
+    }
+    
     public static void main(String[] args) {
     	new AudioPlayer("sound/birds.mp3");
-    	new AudioPlayer("sound/talk_inside.wav");
+    	//new AudioPlayer("sound/talk_inside.wav");
+    	//new AudioPlayer("music/critical.wav");
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {

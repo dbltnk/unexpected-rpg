@@ -32,6 +32,10 @@ public class SceneLoader {
 	
 	private static boolean fullscreenSwitch = false;
 	
+	private HashMap<String,AudioPlayer> musicMap = new HashMap<String,AudioPlayer>();
+	
+	private HashMap<String,AudioPlayer> soundMap = new HashMap<String,AudioPlayer>();
+	
 	public void setNextScene(String nextScene)
 	{
 		this.nextScene = nextScene;
@@ -139,25 +143,25 @@ public class SceneLoader {
 		{
 			if(situation.getBoolean("stop_music"))
 			{
-				//ToDo: add code for stopping/fading music
+				stopAllMusic();
 			}
 		}
 		if(situation.has("stop_sound"))
 		{
 			if(situation.getBoolean("stop_sound"))
 			{
-				//ToDo: add code for stopping/fading sound
+				stopAllSounds();
 			}
 		}
 		if(situation.has("music"))
 		{
 			String musicFile = situation.getString("music");
-			//ToDo: add code for playing music file
+			playMusic(musicFile);
 		}
 		if(situation.has("sound"))
 		{
-			String soundFile = situation.getString("music");
-			//ToDo: add code for playing sound file
+			String soundFile = situation.getString("sound");
+			playSound(soundFile);
 		}
 		
 		// create list of effects
@@ -431,6 +435,40 @@ public class SceneLoader {
 		return input;
 	}*/
 	
+	public void playSound(String soundFile) {
+		//System.out.println(soundFile);
+		AudioPlayer newSound = new AudioPlayer(soundFile);
+		if (soundMap.containsKey(soundFile)) {
+			soundMap.get(soundFile).interrupt();
+			soundMap.remove(soundFile);
+		}
+		this.soundMap.put(soundFile,newSound);
+	}
+	
+	public void playMusic(String musicFile) {
+		//System.out.println(musicFile);
+		AudioPlayer newMusic = new AudioPlayer(musicFile);
+		if (musicMap.containsKey(musicFile)) {
+			musicMap.get(musicFile).interrupt();
+			musicMap.remove(musicFile);
+		}
+		this.musicMap.put(musicFile,newMusic);
+	}
+	
+	public synchronized void stopAllSounds() {
+		for (String key : this.soundMap.keySet()) {
+			this.soundMap.get(key).stopAudio();
+			this.soundMap.remove(key);
+		}
+	}
+	
+	public synchronized void stopAllMusic() {
+		for (String key : this.musicMap.keySet()) {
+			this.musicMap.get(key).stopAudio();
+			this.musicMap.remove(key);
+		}
+	}
+	
 	public synchronized static void keyPressed(KeyEvent e)
 	{
 		pressedKey = e.getKeyChar();
@@ -478,7 +516,7 @@ public class SceneLoader {
 					view.setEscapeDialog(true);
 					isKeyPressed = false;
 					// just for testing the audio player component_
-					// new AudioPlayer("sound/talk_inside.wav");
+					//new AudioPlayer("sound/birds.mp3");
 				} else if (pressedKey == KeyEvent.VK_ENTER) {
 					view.toggleFullscreen();
 				}
