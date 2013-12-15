@@ -316,15 +316,7 @@
 		]
 	},
 	"BlueBird2": {
-		"situation": {"text": "The mage prepared a fire spell to burn the beast's feathers and the rogue aimed at its eye with his slingshot. When the bird noticed the four strangers, it emitted a bloodcurling cry and beat its wings.",
-						"background": "plain",
-						"reset_images":true,
-						"images":
-						[
-							{"image":"mage", "x":200, "y":150},
-							{"image":"rogue", "x":400, "y":150},
-							{"image":"bird_fly", "x":300, "y":0}
-						]},
+		"situation": {"text": "The mage prepared a fire spell to burn the beast's feathers and the rogue aimed at its eye with his slingshot. When the bird noticed the four strangers, it emitted a bloodcurling cry and beat its wings."},
 		"choice":
 		[
 			{"tag":"Attack with the slingshot!",
@@ -332,8 +324,8 @@
 			 [
 				{"action":"add_int", "name":"battle points", "value":1},
 				{"action":"reset_images"},
-				{"action":"add_image", "image":"bird_bleed", "x":300, "y":0},
-				{"action":"add_image", "image":"rogue", "x":400, "y":150},
+				{"action":"add_image", "image":"bird_bleed", "x":550, "y":-20},
+				{"action":"add_image", "image":"rogue", "x":250, "y":100},
 				{"action":"set_text", "text": "The beast's head was knocked back as the rogue attacked with matchless precision. It quickly took off and disappeared into the skies."},
 				{"action":"set_condition", "condition": "1A"}
 			 ]
@@ -343,8 +335,8 @@
 			 [
 				{"action":"add_int", "name":"battle points", "value":2},
 				{"action":"reset_images"},
-				{"action":"add_image", "image":"bird_smoke", "x":300, "y":0},
-				{"action":"add_image", "image":"mage", "x":200, "y":150},
+				{"action":"add_image", "image":"bird_smoke", "x":550, "y":-20},
+				{"action":"add_image", "image":"mage", "x":100, "y":200},
 				{"action":"set_text", "text": "The fireball set the tree on fire and seared the beast's feathers. It quickly took off and disappeared into the skies, leaving behind a trail of smoke."},
 				{"action":"set_condition", "condition": "1B"}
 			 ]
@@ -354,9 +346,12 @@
 			 [
 				{"action":"add_int", "name":"battle points", "value":-1},
 				{"action":"reset_images"},
+				{"action":"add_image", "image":"priest", "x":100, "y":100},
+				{"action":"add_image", "image":"mage", "x":100, "y":200},
+				{"action":"add_image", "image":"rogue", "x":250, "y":100},
+				{"action":"add_image", "image":"fighter", "x":250, "y":200, "conditions":["NO_ITEM:Armor"]},
+				{"action":"add_image", "image":"fighter_armor", "x":250, "y":200, "conditions":["ITEM:Armor"]},
 				{"action":"add_image", "image":"bird_fly", "x":550, "y":-20},
-				{"action":"add_image", "image":"mage", "x":200, "y":150},
-				{"action":"add_image", "image":"rogue", "x":400, "y":150},
 				{"action":"set_text", "text": "The beast soared into the air, emitting another cry. In the next moment, it took off eastwards, rose higher and higher and finally disappeared in the clouds."},
 				{"action":"set_condition", "condition": "1C"}
 			 ]
