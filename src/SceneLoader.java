@@ -453,6 +453,8 @@ public class SceneLoader {
 					exitMenu = true;
 					view.setEscapeDialog(true);
 					isKeyPressed = false;
+					// just for testing the audio player component_
+					// new AudioPlayer("sound/talk_inside.wav");
 				} else if (pressedKey == KeyEvent.VK_ENTER) {
 					view.toggleFullscreen();
 				}

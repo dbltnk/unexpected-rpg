@@ -7,5 +7,7 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="unexpected-rpg/src/JInput"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="F:/Java/JMF-2.1.1e/lib/jmf.jar"/>
+	<classpathentry kind="lib" path="F:/Java/mp3plugin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
