@@ -365,6 +365,8 @@ public class SceneLoader {
 			}
 			case Effect.ACTION_RESET_ALL:
 			{
+				stopAllMusic();
+				stopAllSounds();
 				Party.clear();
 				Inventory.clear();
 				Condition.clear();
