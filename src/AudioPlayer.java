@@ -254,7 +254,7 @@ public class AudioPlayer extends Thread implements ControllerListener {
     /** main method for testing */
     public static void main(String[] args) {
     	AudioPlayer audioPlayer = new AudioPlayer("music/critical.mp3",0.8f);
-    	AudioPlayer audioPlayer2 = new AudioPlayer("sound/talk_inside.wav",0.8f);
+    	AudioPlayer audioPlayer2 = new AudioPlayer("sound/talk_inside.mp3",0.8f);
 		try {
 			Thread.sleep(2000);
 			audioPlayer.fadeOut(5000);
