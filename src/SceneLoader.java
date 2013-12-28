@@ -36,6 +36,8 @@ public class SceneLoader {
 	
 	private HashMap<String,AudioPlayer> soundMap = new HashMap<String,AudioPlayer>();
 	
+	public static final int STD_FADEOUT_TIME = 1000;
+	
 	public void setNextScene(String nextScene)
 	{
 		this.nextScene = nextScene;
@@ -143,14 +145,14 @@ public class SceneLoader {
 		{
 			if(situation.getBoolean("stop_music"))
 			{
-				stopAllMusic();
+				stopAllMusic(STD_FADEOUT_TIME);
 			}
 		}
 		if(situation.has("stop_sound"))
 		{
 			if(situation.getBoolean("stop_sound"))
 			{
-				stopAllSounds();
+				stopAllSounds(STD_FADEOUT_TIME);
 			}
 		}
 		if(situation.has("music"))
@@ -365,8 +367,8 @@ public class SceneLoader {
 			}
 			case Effect.ACTION_RESET_ALL:
 			{
-				stopAllMusic();
-				stopAllSounds();
+				stopAllMusic(STD_FADEOUT_TIME);
+				stopAllSounds(STD_FADEOUT_TIME);
 				Party.clear();
 				Inventory.clear();
 				Condition.clear();
@@ -457,16 +459,24 @@ public class SceneLoader {
 		this.musicMap.put(musicFile,newMusic);
 	}
 	
-	public synchronized void stopAllSounds() {
+	public synchronized void stopAllSounds(int fadeOutTime) {
 		for (String key : this.soundMap.keySet()) {
-			this.soundMap.get(key).stopAudio();
+			if (fadeOutTime > 0) {
+				this.soundMap.get(key).fadeOut(fadeOutTime);
+			} else {
+				this.soundMap.get(key).stopAudio();
+			}
 			this.soundMap.remove(key);
 		}
 	}
 	
-	public synchronized void stopAllMusic() {
+	public synchronized void stopAllMusic(int fadeOutTime) {
 		for (String key : this.musicMap.keySet()) {
-			this.musicMap.get(key).stopAudio();
+			if (fadeOutTime > 0) {
+				this.musicMap.get(key).fadeOut(fadeOutTime);
+			} else {
+				this.musicMap.get(key).stopAudio();
+			}
 			this.musicMap.remove(key);
 		}
 	}
