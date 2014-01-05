@@ -95,6 +95,14 @@ public class SceneLoader {
 			return false;
 		}
 		
+		if(sceneName == "Init")
+		{
+			List<Effect> effects = new ArrayList<Effect>();
+			effects.addAll(Effect.getEffects(scene));
+			execute(effects);
+			return true;
+		}
+		
 		//show situation
 		JSONObject situation = scene.getJSONObject("situation");
 		String situationText = situation.getString("text");
@@ -243,8 +251,13 @@ public class SceneLoader {
 		}
 		
 		effects.addAll(Effect.getEffects(scene));
+		execute(effects);
 		
-		// do effects
+		return true;
+	}
+	
+	public void execute(List<Effect> effects)
+	{
 		for (Effect effect : effects) {
 			if(!effect.conditionsTrue())
 			{
@@ -402,7 +415,6 @@ public class SceneLoader {
 				System.out.println("Debug: effect " + json.getString("action") + " unknown.");	
 			}
 		}
-		return true;
 	}
 	
 	public SceneLoader(String inputFile) {

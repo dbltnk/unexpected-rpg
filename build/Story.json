@@ -1,8 +1,19 @@
 {
 	"Init": {
-		"situation": {"text": "Press a key to start the game."},
 		"effects":
 		[
+			{"action":"add_text", "text": "Loading interface. "},
+			{"action":"import_image", "filename":"./images/icon_a_32_trix.png", "label":"buttonA"},
+			{"action":"import_image", "filename":"./images/icon_b_32_trix.png", "label":"buttonB"},
+			{"action":"import_image", "filename":"./images/icon_x_32_trix.png", "label":"buttonX"},
+			{"action":"import_image", "filename":"./images/icon_y_32_trix.png", "label":"buttonY"},
+			{"action":"import_image", "filename":"./images/item_bg_trix.png", "label":"item_bg"},
+			{"action":"import_image", "filename":"./images/ui_bag_trix_scaled.png", "label":"inventory_bg"},
+			{"action":"import_image", "filename":"./images/ui_gold_compo.png", "label":"icon_gold"},
+			{"action":"import_image", "filename":"./images/ui_papyrus_trix.png", "label":"textbox"},
+			{"action":"import_image", "filename":"./images/ui_xp_compo.png", "label":"icon_battlepoints"},
+			
+			{"action":"add_text", "text": "Loading all images. Please wait "},
 			{"action":"import_image", "filename":"./images/bg_abduct_128_blur_950.png", "label":"abduct"},
 			{"action":"import_image", "filename":"./images/bg_black_950.png", "label":"black"},
 			{"action":"import_image", "filename":"./images/bg_castle_128_blur_950.png", "label":"castle"},
@@ -13,6 +24,7 @@
 			{"action":"import_image", "filename":"./images/bg_mountain_950.png", "label":"mountain"},
 			{"action":"import_image", "filename":"./images/bg_mountain_storm_hole_950x.png", "label":"mountain_storm"},
 			{"action":"import_image", "filename":"./images/bg_plain_128_blur_950.png", "label":"plain"},
+			{"action":"add_text", "text": "."},
 			{"action":"import_image", "filename":"./images/bg_taverna_950.png", "label":"taverna"},
 			{"action":"import_image", "filename":"./images/bg_tower_128_blur_950.png", "label":"tower"},
 			{"action":"import_image", "filename":"./images/bg_town_128_blur_950.png", "label":"town"},
@@ -23,21 +35,18 @@
 			{"action":"import_image", "filename":"./images/char_fighter_unarmored_trix_cut.png", "label":"fighter"},
 			{"action":"import_image", "filename":"./images/char_mage_trix_cut.png", "label":"mage"},
 			{"action":"import_image", "filename":"./images/char_priest_trix_cut.png", "label":"priest"},
+			{"action":"add_text", "text": "."},
 			{"action":"import_image", "filename":"./images/char_rogue_trix_cut.png", "label":"rogue"},
 			{"action":"import_image", "filename":"./images/end_go.png", "label":"game_over"},
 			{"action":"import_image", "filename":"./images/end_tbc.png", "label":"to_be_continued"},
 			{"action":"import_image", "filename":"./images/end_wd.png", "label":"well_done"},
-			{"action":"import_image", "filename":"./images/icon_a_32_trix.png", "label":"icon_a"},
-			{"action":"import_image", "filename":"./images/icon_b_32_trix.png", "label":"icon_b"},
-			{"action":"import_image", "filename":"./images/icon_x_32_trix.png", "label":"icon_x"},
-			{"action":"import_image", "filename":"./images/icon_y_32_trix.png", "label":"icon_y"},
 			{"action":"import_image", "filename":"./images/item_armor_glow.png", "label":"armor"},
-			{"action":"import_image", "filename":"./images/item_bg_trix.png", "label":"item_bg"},
 			{"action":"import_image", "filename":"./images/item_book_glow.png", "label":"book"},
 			{"action":"import_image", "filename":"./images/item_flower_glow.png", "label":"flower"},
 			{"action":"import_image", "filename":"./images/item_horse_glow.png", "label":"horse"},
 			{"action":"import_image", "filename":"./images/mob_bag_trix.png", "label":"bag"},
 			{"action":"import_image", "filename":"./images/mob_bird_trix.png", "label":"bird"},
+			{"action":"add_text", "text": "."},
 			{"action":"import_image", "filename":"./images/mob_boss_trix.png", "label":"boss"},
 			{"action":"import_image", "filename":"./images/mob_creature_trix.png", "label":"creature"},
 			{"action":"import_image", "filename":"./images/mob_flower_trix.png", "label":"mob_flower"},
@@ -48,12 +57,16 @@
 			{"action":"import_image", "filename":"./images/mob_rider_cut.png", "label":"rider"},
 			{"action":"import_image", "filename":"./images/mobs_book.png", "label":"mob_book"},
 			{"action":"import_image", "filename":"./images/mobs_gold_trix.png", "label":"gold"},
+			{"action":"add_text", "text": "."},
 			{"action":"import_image", "filename":"./images/mobs_horses_trix.png", "label":"mobs_horses"},
-			{"action":"import_image", "filename":"./images/ui_bag_trix_scaled.png", "label":"ui_bag"},
-			{"action":"import_image", "filename":"./images/ui_gold_compo.png", "label":"ui_gold"},
-			{"action":"import_image", "filename":"./images/ui_papyrus_trix.png", "label":"papyrus"},
-			{"action":"import_image", "filename":"./images/ui_xp_compo.png", "label":"xp_compo"},
 			{"action":"import_image", "filename":"./images/wall_blur_950.png", "label":"wall"},
+			{"action":"next_scene", "scene":"Start"}
+		]
+	},
+	"Start": {
+		"situation": {"text": "Press a key to start the game."},
+		"effects":
+		[
 			{"action":"next_scene", "scene":"Intro1"}
 		]
 	},

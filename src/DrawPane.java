@@ -172,7 +172,7 @@ public class DrawPane extends JPanel {
 		this.imageMap = new HashMap<String,Image>();
 		this.imgPositionings = new ArrayList<ImagePositioning>();
 		// read in all images
-		readImages();
+		//readImages();
 	}
 	
 //	/** sets the dimension of the pane */
@@ -346,29 +346,8 @@ public class DrawPane extends JPanel {
 	}
 
 	/** read in all images and save them in the image hash */
-	public void readImages() {
+	/*public void readImages() {
 		HashMap<String,String> filenameMap = new HashMap<String,String>();
-		filenameMap.put("./images/bg_abduct_128_blur_950.png","bg_abduct");
-		filenameMap.put("./images/bg_black_950.png","bg_black");
-		filenameMap.put("./images/bg_castle_128_blur_950.png","bg_castle");
-		filenameMap.put("./images/bg_cave_950.png","bg_cave");
-		filenameMap.put("./images/bg_crypta_950.png","bg_crypta");
-		filenameMap.put("./images/bg_house_128_blur_950.png","bg_house");
-		filenameMap.put("./images/bg_mountain_950.png","bg_mountain");
-		filenameMap.put("./images/bg_plain_128_blur_950.png","bg_plain");
-		filenameMap.put("./images/bg_taverna_950.png","bg_taverna");
-		filenameMap.put("./images/bg_tower_128_blur_950.png","bg_tower");
-		filenameMap.put("./images/bg_town_128_blur_950.png","bg_town");
-		filenameMap.put("./images/item_book_glow.png","item_book");
-		filenameMap.put("./images/item_flower_glow.png","item_flower");
-		filenameMap.put("./images/item_horse_glow.png","item_horse");
-		filenameMap.put("./images/item_armor_glow.png","item_armor");
-		filenameMap.put("./images/char_fighter_armored_trix_cut.png","char_fighter_armored");
-		filenameMap.put("./images/char_fighter_unarmored_trix_cut.png","char_fighter_unarmored");
-		filenameMap.put("./images/char_mage_trix_cut.png","char_mage");
-		filenameMap.put("./images/char_priest_trix_cut.png","char_priest");
-		filenameMap.put("./images/char_rogue_trix_cut.png","char_rogue");
-		filenameMap.put("./images/mob_bird_trix.png","mob_bird");
 		filenameMap.put("./images/item_bg_trix.png", "item_bg");
 		filenameMap.put("./images/icon_a_32_trix.png", "buttonA");
 		filenameMap.put("./images/icon_b_32_trix.png", "buttonB");
@@ -383,7 +362,7 @@ public class DrawPane extends JPanel {
 //			System.out.println(filename);
 			addImage(filename,filenameMap.get(filename));
 		}
-	}
+	}*/
 	
 	/** add an image to the image map and assign it to a given label */
 	public void addImage(String filename, String label) {
