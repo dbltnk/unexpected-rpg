@@ -292,11 +292,11 @@
 						]},
 		"effects":
 		[
-			{"action":"next_scene", "scene":"BlueBird1"}
+			{"action":"next_scene", "scene":"BlueBird"}
 		]
 	},
-	"BlueBird1": {
-		"situation": {"text": "When the party stepped outside the tavern, they spotted a giant blue bird in a nearby tree. Never before had they seen such an animal, but it looked rather dangerous, so they braced themselves for battle.",
+	"BlueBird": {
+		"situation": {"text": "When the party stepped outside the tavern, they spotted a giant blue bird in a nearby tree. Never before had they seen such an animal, but it looked rather dangerous, so they braced themselves for battle.\nThe mage prepared a fire spell to burn the beast's feathers and the rogue aimed at its eye with his slingshot. When the bird noticed the four strangers, it emitted a bloodcurling cry and beat its wings.",
 						"background": "plain",
 						"stop_music":true,
 						"stop_sound":true,
@@ -311,13 +311,6 @@
 							{"image":"fighter_armor", "x":250, "y":200, "conditions":["ITEM:Armor"]},
 							{"image":"bird", "x":550, "y":0}
 						]},
-		"effects":
-		[
-			{"action":"next_scene","scene":"BlueBird2"}
-		]
-	},
-	"BlueBird2": {
-		"situation": {"text": "The mage prepared a fire spell to burn the beast's feathers and the rogue aimed at its eye with his slingshot. When the bird noticed the four strangers, it emitted a bloodcurling cry and beat its wings."},
 		"choice":
 		[
 			{"tag":"Attack with the slingshot!",
