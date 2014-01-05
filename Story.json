@@ -281,6 +281,7 @@
 						"background": "taverna",
 						"music":"./music/town.mp3",
 						"sound":"./sound/talk_inside.wav",
+						"sound_volume":0.2,
 						"images":
 						[
 							{"image":"priest", "x":100, "y":150},

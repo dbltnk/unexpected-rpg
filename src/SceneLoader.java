@@ -158,12 +158,28 @@ public class SceneLoader {
 		if(situation.has("music"))
 		{
 			String musicFile = situation.getString("music");
-			playMusic(musicFile);
+			if(situation.has("music_volume"))
+			{
+				float volume = (float)situation.getDouble("music_volume");
+				playMusic(musicFile, volume);
+			}
+			else
+			{
+				playMusic(musicFile);
+			}
 		}
 		if(situation.has("sound"))
 		{
 			String soundFile = situation.getString("sound");
-			playSound(soundFile);
+			if(situation.has("sound_volume"))
+			{
+				float volume = (float)situation.getDouble("sound_volume");
+				playSound(soundFile, volume);
+			}
+			else
+			{
+				playSound(soundFile);
+			}
 		}
 		
 		// create list of effects
@@ -440,8 +456,12 @@ public class SceneLoader {
 	}*/
 	
 	public void playSound(String soundFile) {
+		playSound(soundFile, 0.8f);
+	}
+	
+	public void playSound(String soundFile, float volume) {
 		//System.out.println(soundFile);
-		AudioPlayer newSound = new AudioPlayer(soundFile);
+		AudioPlayer newSound = new AudioPlayer(soundFile, volume);
 		if (soundMap.containsKey(soundFile)) {
 			soundMap.get(soundFile).interrupt();
 			soundMap.remove(soundFile);
@@ -450,8 +470,12 @@ public class SceneLoader {
 	}
 	
 	public void playMusic(String musicFile) {
+		playMusic(musicFile, 0.8f);
+	}
+	
+	public void playMusic(String musicFile, float volume) {
 		//System.out.println(musicFile);
-		AudioPlayer newMusic = new AudioPlayer(musicFile);
+		AudioPlayer newMusic = new AudioPlayer(musicFile, volume);
 		if (musicMap.containsKey(musicFile)) {
 			musicMap.get(musicFile).interrupt();
 			musicMap.remove(musicFile);
