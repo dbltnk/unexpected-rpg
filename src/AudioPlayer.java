@@ -199,7 +199,7 @@ public class AudioPlayer extends Thread implements ControllerListener {
     	}
     	if (this.type.equals("mp3") && this.mp3Player != null) {*/
     	if (this.player != null) {
-    		System.out.println("Fade out...");
+    		//System.out.println("Fade out...");
     		float startVolumeLevel = this.gainControl.getLevel();
     		//System.out.println("Start volume level: " + startVolumeLevel);
     		float minValue = -0.5f;

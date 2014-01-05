@@ -233,9 +233,13 @@ public class SceneLoader {
 		else
 		{
 			view.hideOptions();
-			System.out.println(situationText);
-			view.setMessage(situationText);
-			getKeyboardInput();
+			String[] textParts = situationText.split("\n");
+			for(int i=0; i<textParts.length; i++)
+			{
+				System.out.println(textParts[i]);
+				view.setMessage(textParts[i]);
+				getKeyboardInput();
+			}
 		}
 		
 		effects.addAll(Effect.getEffects(scene));
