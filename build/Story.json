@@ -7,10 +7,7 @@
 			{"action":"import_image", "filename":"./images/bg_black_950.png", "label":"black"},
 			{"action":"import_image", "filename":"./images/bg_castle_128_blur_950.png", "label":"castle"},
 			{"action":"import_image", "filename":"./images/bg_cave_950.png", "label":"cave"},
-			{"action":"import_image", "filename":"./images/bg_continue_castle_trix.png", "label":"continue_castle"},
 			{"action":"import_image", "filename":"./images/bg_crypta_950.png", "label":"crypta"},
-			{"action":"import_image", "filename":"./images/bg_done_castle_trix.png", "label":"done_castle"},
-			{"action":"import_image", "filename":"./images/bg_gameover_castle_trix.png", "label":"gameover_castle"},
 			{"action":"import_image", "filename":"./images/bg_gameover_prison_trix.png", "label":"gameover_prison"},
 			{"action":"import_image", "filename":"./images/bg_house_128_blur_950.png", "label":"house"},
 			{"action":"import_image", "filename":"./images/bg_mountain_950.png", "label":"mountain"},
@@ -27,6 +24,9 @@
 			{"action":"import_image", "filename":"./images/char_mage_trix_cut.png", "label":"mage"},
 			{"action":"import_image", "filename":"./images/char_priest_trix_cut.png", "label":"priest"},
 			{"action":"import_image", "filename":"./images/char_rogue_trix_cut.png", "label":"rogue"},
+			{"action":"import_image", "filename":"./images/end_go.png", "label":"game_over"},
+			{"action":"import_image", "filename":"./images/end_tbc.png", "label":"to_be_continued"},
+			{"action":"import_image", "filename":"./images/end_wd.png", "label":"well_done"},
 			{"action":"import_image", "filename":"./images/icon_a_32_trix.png", "label":"icon_a"},
 			{"action":"import_image", "filename":"./images/icon_b_32_trix.png", "label":"icon_b"},
 			{"action":"import_image", "filename":"./images/icon_x_32_trix.png", "label":"icon_x"},
@@ -1275,8 +1275,12 @@
 	},
 	"ToBeContinued": {
 		"situation": {"text": "You were not able to rescue your friend. Please press a key to start a new game and try again.",
-						"background": "continue_castle",
-						"reset_images":true
+						"background": "castle",
+						"reset_images":true,
+						"images":
+						[
+							{"image":"to_be_continued", "x":62, "y":80}
+						]
 		},
 		"effects":
 		[
@@ -1287,7 +1291,11 @@
 	"GameOverInJail": {
 		"situation": {"text": "Game over. Please press a key to start a new game.",
 						"background": "gameover_prison",
-						"reset_images":true
+						"reset_images":true,
+						"images":
+						[
+							{"image":"game_over", "x":77, "y":47}
+						]
 		},
 		"effects":
 		[
@@ -1297,8 +1305,12 @@
 	},
 	"Congratulations": {
 		"situation": {"text": "Congratulations. You were able to rescue your friend. Please press a key to start a new game.",
-						"background": "done_castle",
-						"reset_images":true
+						"background": "castle",
+						"reset_images":true,
+						"images":
+						[
+							{"image":"well_done", "x":92, "y":51}
+						]
 		},
 		"effects":
 		[
@@ -1307,9 +1319,13 @@
 		]
 	},
 	"CrushedByMonster": {
-	"situation": {"text": "Game over. Please press a key to start a new game.",
-					"background":"gameover_castle",
-						"reset_images":true
+		"situation": {"text": "Game over. Please press a key to start a new game.",
+						"background":"castle",
+						"reset_images":true,
+						"images":
+						[
+							{"image":"game_over", "x":77, "y":47}
+						]
 		},
 		"effects":
 		[
@@ -1318,9 +1334,13 @@
 		]
 	},
 	"FallenFromWall": {
-	"situation": {"text": "Game over. Please press a key to start a new game.",
-					"background":"gameover_castle",
-						"reset_images":true
+		"situation": {"text": "Game over. Please press a key to start a new game.",
+						"background":"wall",
+						"reset_images":true,
+						"images":
+						[
+							{"image":"game_over", "x":77, "y":47}
+						]
 		},
 		"effects":
 		[
