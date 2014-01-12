@@ -22,6 +22,8 @@ public class Effect {
 	public static final String ACTION_ADD_FOREGROUND_IMAGE = "add_image";
 	public static final String ACTION_RESET_IMAGES = "reset_images";
 	public static final String ACTION_RESET_ALL = "reset_all";
+	public static final String ACTION_MUSIC = "music";
+	public static final String ACTION_SOUND = "sound";
 	
 	private JSONObject json;
 	

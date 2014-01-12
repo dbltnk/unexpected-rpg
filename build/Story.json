@@ -279,8 +279,7 @@
 	},
 	"Abduction": {
 		"situation": {"text": "Our story begins years after this victorious battle, which had finally brought  peace upon our land. It was a dark, yet warm summer night and the great hero was resting in his home. When he suddenly woke up to a noise in his bedroom, he looked up to see a dark figure standing at the foot of his bed. The next morning, he had disappeared.",
-						"background": "abduct",
-						"stop_music": true
+						"background": "abduct"
 						},
 		"effects":
 		[
@@ -292,6 +291,7 @@
 	"Tavern": {
 		"situation": {"text": "A few days later, in a tavern just outside the city of Tylia, four old friends of the now missing hero learned about his abduction. Without hesitation, they decided to set out for his rescue. They all were experienced fighters themselves, each in their own fashion: A priestess, a mage, a rogue and a swordswoman. According to rumors, their friend had been brought to the Freyn castle in the very east of the land - for what reason, nobody knew.",
 						"background": "taverna",
+						"stop_music":true,
 						"music":"./music/town.mp3",
 						"sound":"./sound/talk_inside.wav",
 						"sound_volume":0.2,
@@ -402,6 +402,7 @@
 				{"action":"add_image", "image":"fighter", "x":460, "y":180, "conditions":["NO_ITEM:Armor"]},
 				{"action":"add_image", "image":"fighter_armor", "x":460, "y":180, "conditions":["ITEM:Armor"]},
 				{"action":"add_item", "item":"head", "image":"bag"},
+				{"action":"music", "stop_music": true, "stop_sound": true, "music":"./music/battle.mp3"},
 				{"action":"set_text", "text": "The four fighters left the city to look for the bandits. They investigated the site of the last assault and found a trace that led them into the mountains. In the evening, they found the bandits sitting around their campfire. They waited for the right moment, then they attacked silently. The fight was over quickly, and on the next day, the four heroes presented the bandit leader's head to their employer."},
 				{"action":"set_background", "image":"town"},
 				{"action":"reset_images"},
@@ -414,6 +415,8 @@
 				{"action":"add_int", "name":"battle points", "value":2},
 				{"action":"add_int", "name":"gold", "value":300},
 				{"action":"remove_item", "item":"head", "image":"bag"},
+				{"action":"music", "stop_music": true, "music":"./music/town.mp3"},
+				{"action":"sound", "sound":"./sound/talk_outside.wav"},
 				{"action":"set_text", "text": "The wealthy man was delighted to see his problem was solved and rewarded the heroes generously."},
 				{"action":"set_condition", "condition": "2A"}
 			 ]
@@ -650,6 +653,7 @@
 				{"action":"add_image", "image":"creature", "x":350, "y":300},
 				{"action":"add_image", "image":"creature", "x":190, "y":260},
 				{"action":"add_image", "image":"creature", "x":20, "y":180},
+				{"action":"music", "stop_music": true, "music":"./music/battle.mp3"},
 				{"action":"set_text", "text":"Out of the sudden, they were surrounded by strange humanoid mountain creatures that were armed to their teeth. \"Give it back to us!\", they shouted, \"Give it back!\""},
 				{"action":"next_scene", "scene":"MountainPass"}
 			 ]
@@ -680,6 +684,7 @@
 				{"action":"add_image", "image":"creature", "x":350, "y":300},
 				{"action":"add_image", "image":"creature", "x":190, "y":260},
 				{"action":"add_image", "image":"creature", "x":20, "y":180},
+				{"action":"music", "stop_music": true, "music":"./music/battle.mp3"},
 				{"action":"set_text", "text": "In the moment they passed through the exit, they heard a screaking voice. \"Look, Abraxas! There was humans in our cave!\" Out of the sudden, they were surrounded by strange humanoid mountain creatures that were armed to their teeth."},
 				{"action":"next_scene", "scene":"MountainPass"}
 			 ]
@@ -773,8 +778,6 @@
 	},
 	"MountainPass": {
 		"situation": {"text":"The strange creatures jumped around the human intruders, waving around with their weapons. \"I count eight of them\", the rogue whispered. \"I think we can handle them\", the swordswoman replied.",
-						"stop_music":true,
-						"music":"./music/battle.mp3",
 						"background": "mountain"},
 		"choice":
 		[
@@ -1033,8 +1036,7 @@
 	"LastTest": {
 		"situation": {"text": "As the heroes approached the castle, they noticed, even though they were still far away, that a gigantic wall protected it from intruders. However, before they got close to it, they made out a dust cloud a few hills further north that approached them quickly. Within a few moments, they were surrounded by about twenty riders wearing the symbol of castle Freyn.\nThey prepared to defend themselves, but one of the riders held up his hand and got off his horse. \"We know who you are\", he said\", \"We already heard about you and what you have done to come here. You want to save your friend? We had good reason to imprison him, but I will give you a chance.\nYou all have pure hearts, but I want to know how close of a friend he is to you, so I can be sure he is as good as you are.\" So tell me first, what is his name?",
 						"background":"tower",
-						"stop_music":true,
-						"music":"./music/peaceful.mp3",
+						"stop_sound":true,
 						"reset_images":true
 						},
 		"choice":

@@ -411,6 +411,56 @@ public class SceneLoader {
 				view.setBattlepoints(""+Party.getInt("battle points"));
 				break;
 			}
+			case Effect.ACTION_MUSIC:
+			{
+				if(json.has("stop_music") && json.getBoolean("stop_music"))
+				{
+					stopAllMusic(STD_FADEOUT_TIME);
+				}
+				if(json.has("stop_sound") && json.getBoolean("stop_sound"))
+				{
+					stopAllSounds(STD_FADEOUT_TIME);
+				}
+				if(json.has("music"))
+				{
+					String musicFile = json.getString("music");
+					if(json.has("music_volume"))
+					{
+						float volume = (float)json.getDouble("music_volume");
+						playMusic(musicFile, volume);
+					}
+					else
+					{
+						playMusic(musicFile);
+					}
+				}
+				break;
+			}
+			case Effect.ACTION_SOUND:
+			{
+				if(json.has("stop_music") && json.getBoolean("stop_music"))
+				{
+					stopAllMusic(STD_FADEOUT_TIME);
+				}
+				if(json.has("stop_sound") && json.getBoolean("stop_sound"))
+				{
+					stopAllSounds(STD_FADEOUT_TIME);
+				}
+				if(json.has("sound"))
+				{
+					String soundFile = json.getString("sound");
+					if(json.has("sound_volume"))
+					{
+						float volume = (float)json.getDouble("sound_volume");
+						playSound(soundFile, volume);
+					}
+					else
+					{
+						playSound(soundFile);
+					}
+				}
+				break;
+			}
 			default:
 				System.out.println("Debug: effect " + json.getString("action") + " unknown.");	
 			}
